@@ -9,7 +9,7 @@ import java.util.Calendar;
 
 /**
  *
- * @author LILI-PC
+ * @author Romina Rojas
  */
 public class User {
     private int ID;

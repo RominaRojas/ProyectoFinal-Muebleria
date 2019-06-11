@@ -1,27 +1,29 @@
 
-package aplicacion.modelo.dominio;
+package aplicacion.modelo.dominio.product;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable{
     private int id;
-    private Integer productId;
+    private int productId;
     private int stock;
     private double price;
     private String name;
     private String description;
-    private Integer categoriaId;
+    private int categoryId;
 
     public Product() {
     
     }
 
-    public Product(int id, Integer productId, int stock, double price, String name, String description, Integer categoriaId) {
+    public Product(int id, Integer productId, int stock, double price, String name, String description, int categoryId) {
         this.id = id;
         this.productId = productId;
         this.stock = stock;
         this.price = price;
         this.name = name;
         this.description = description;
-        this.categoriaId = categoriaId;
+        this.categoryId = categoryId;
     }
 
     public int getId() {
@@ -36,7 +38,7 @@ public class Product {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 
@@ -72,11 +74,11 @@ public class Product {
         this.description = description;
     }
 
-    public Integer getCategoriaId() {
-        return categoriaId;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategoriaId(Integer categoriaId) {
-        this.categoriaId = categoriaId;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 }

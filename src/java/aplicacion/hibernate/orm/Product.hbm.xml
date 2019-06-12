@@ -2,32 +2,32 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class  name="aplicacion.modelo.dominio.product.Product"  catalog="muebleria" table="product" optimistic-lock="version" >
+    <class  name="aplicacion.modelo.dominio.product.Product"  catalog="muebleria" table="product" optimistic-lock="version" >
     
-      <id name="id" type="integer">
+        <id name="id" type="integer">
             <column name="product_id"/>
             <generator class="identity"/>                
-      </id>
+        </id>
   
-      <property name="stock" type="integer">
+        <property name="stock" type="integer">
             <column name="stock"  not-null="true" />
-      </property>    
+        </property>    
   
-      <property name="price" type="double">
+        <property name="price" type="double">
             <column name="price"  not-null="true" />
-      </property>    
+        </property>    
       
-      <property name="name" type="string">
+        <property name="name" type="string">
             <column name="name" lenght="100"  not-null="true" />
-      </property>    
+        </property>    
       
-      <property name="description" type="text">
+        <property name="description" type="text">
             <column name="description"  not-null="true" />
-      </property>    
+        </property>    
       
-      <property name="categoryId" type="integer">
+        <property name="categoryId" type="integer">
             <column name="category_Id"  not-null="true" />
-      </property>    
-  </class>
+        </property>    
+    </class>
   
 </hibernate-mapping>

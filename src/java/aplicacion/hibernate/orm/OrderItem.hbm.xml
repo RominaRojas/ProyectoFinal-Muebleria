@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="aplicacion.modelo.dominio.order.OrderItem" catalog="muebleria" table="order_item" optimistic-lock="version">
+     
+        <id name="id" type="integer">
+            <column name="order_item_id"/>
+            <generator class="identity"/>                
+        </id> 
+     
+        <property name="orderId" type="integer">
+            <column name="order_id"   not-null="true" />
+        </property> 
+     
+        <property name="quantity" type="integer">
+            <column name="quantity" not-null="true" />
+        </property> 
+      
+        <property name="price" type="double">
+            <column name="price" not-null="true" />
+        </property> 
+      
+    </class>
+</hibernate-mapping>

@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author Lilia Said
  */
-public class OrderItem implements Serializable{
+public class OrderItem implements Serializable {
+
     private int id;
     private int orderId;
     private int quantity;
@@ -82,6 +83,5 @@ public class OrderItem implements Serializable{
     public void setPrice(float price) {
         this.price = price;
     }
-    
-      
+
 }

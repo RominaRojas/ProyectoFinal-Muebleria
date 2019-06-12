@@ -2,28 +2,28 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class  name="aplicacion.modelo.dominio.order.Order" catalog="muebleria" table="order" optimistic-lock="version" >
+    <class  name="aplicacion.modelo.dominio.order.Order" catalog="muebleria" table="order" optimistic-lock="version" >
   
-     <id name="id" type="integer">
+        <id name="id" type="integer">
             <column name="order_id"/>
             <generator class="identity"/>                
-     </id> 
+        </id> 
      
-     <property name="orderNumber" type="integer">
+        <property name="orderNumber" type="integer">
             <column name="order_number"  not-null="true" />
-      </property> 
+        </property> 
       
-      <property name="userId" type="integer">
+        <property name="userId" type="integer">
             <column name="user_id" not-null="true" />
-      </property> 
+        </property> 
       
-      <property name="createdAt" type="calendar">
+        <property name="createdAt" type="calendar">
             <column name="created_at" not-null="true" />
-      </property> 
+        </property> 
       
-      <property name="state" type="integer">
+        <property name="state" type="integer">
             <column name="state" not-null="true" />
-      </property> 
+        </property> 
       
-  </class>    
+    </class>    
 </hibernate-mapping>

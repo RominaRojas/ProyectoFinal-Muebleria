@@ -20,8 +20,9 @@ public class User implements Serializable{
     private String email;
     private Calendar dateOfBirth;
     private String password;
-
-    public User(int id, String surname, String name, int dni, String email, Calendar dateOfBirth, String password) {
+    private int role;
+    
+    public User(int id, String surname, String name, int dni, String email, Calendar dateOfBirth, String password, int role) {
         this.id = id;
         this.surname = surname;
         this.name = name;
@@ -29,6 +30,7 @@ public class User implements Serializable{
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.password = password;
+        this.role = role;
     }
 
     /**
@@ -127,6 +129,20 @@ public class User implements Serializable{
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * @return the role
+     */
+    public int getRole() {
+        return role;
+    }
+
+    /**
+     * @param role the role to set
+     */
+    public void setRole(int role) {
+        this.role = role;
     }
     
     

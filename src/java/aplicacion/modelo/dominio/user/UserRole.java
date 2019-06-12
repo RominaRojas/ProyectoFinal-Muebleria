@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aplicacion.modelo.dominio.order;
+package aplicacion.modelo.dominio.user;
 
 /**
  *
  * @author Lilia Said
  */
-public class OrderStatus {
-    public static int pending = 0;
-    public static int canceled = 1;
-    public static int delivered = 2;    
-
+public class UserRole {
+    public static int user = 0;
+    public static int administrator = 1;
 }

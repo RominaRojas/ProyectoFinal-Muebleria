@@ -1,11 +1,11 @@
-
 package aplicacion.modelo.dominio.product;
 
 import java.io.Serializable;
 
-public class Product implements Serializable{
+public class Product implements Serializable {
+
     private int id;
-    private int productId;
+
     private int stock;
     private double price;
     private String name;
@@ -13,12 +13,12 @@ public class Product implements Serializable{
     private int categoryId;
 
     public Product() {
-    
+
     }
 
-    public Product(int id, Integer productId, int stock, double price, String name, String description, int categoryId) {
+    public Product(int id, int stock, double price, String name, String description, int categoryId) {
         this.id = id;
-        this.productId = productId;
+
         this.stock = stock;
         this.price = price;
         this.name = name;
@@ -32,14 +32,6 @@ public class Product implements Serializable{
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
     }
 
     public int getStock() {

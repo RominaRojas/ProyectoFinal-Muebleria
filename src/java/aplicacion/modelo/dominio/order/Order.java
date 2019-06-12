@@ -17,19 +17,17 @@ public class Order implements Serializable{
     private int id;
     private int orderNumber;
     private int userId;
-    private Calendar date;
-    private int addressId;
+    private Calendar createdAt;
     private int state;
 
     public Order() {
     }
 
-    public Order(int id, int orderNumber, int userId, Calendar date, int addressId, int state) {
+    public Order(int id, int orderNumber, int userId, Calendar date, int state) {
         this.id = id;
         this.orderNumber = orderNumber;
         this.userId = userId;
-        this.date = date;
-        this.addressId = addressId;
+        this.createdAt = date;
         this.state = state;
     }
 
@@ -57,20 +55,12 @@ public class Order implements Serializable{
         this.userId = userId;
     }
 
-    public Calendar getDate() {
-        return date;
+    public Calendar getCreatedAt() {
+        return createdAt;
     }
 
-    public void setDate(Calendar date) {
-        this.date = date;
-    }
-
-    public int getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(int addressId) {
-        this.addressId = addressId;
+    public void setCreatedAt(Calendar createdAt) {
+        this.createdAt = createdAt;
     }
 
     public int getState() {
@@ -80,9 +70,5 @@ public class Order implements Serializable{
     public void setState(int state) {
         this.state = state;
     }
-    
- 
-   
-    
     
 }

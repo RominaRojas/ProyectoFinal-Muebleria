@@ -27,7 +27,14 @@
       
         <property name="categoryId" type="integer">
             <column name="category_Id"  not-null="true" />
-        </property>    
+        </property>  
+        
+        <list name="productList" cascade="all-delete-orphan"> 
+            <key column="product_id" /> 
+            <index column="order" /> 
+            <one-to-many class="aplicacion.modelo.dominio.product.Category" /> 
+        </list>  
+            
     </class>
   
 </hibernate-mapping>

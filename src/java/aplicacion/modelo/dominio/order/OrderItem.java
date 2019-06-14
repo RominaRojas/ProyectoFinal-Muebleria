@@ -14,16 +14,14 @@ import java.io.Serializable;
 public class OrderItem implements Serializable {
 
     private int id;
-    private int orderId;
     private int quantity;
     private float price;
 
     public OrderItem() {
     }
 
-    public OrderItem(int id, int orderId, int quantity, float price) {
+    public OrderItem(int id, int quantity, float price) {
         this.id = id;
-        this.orderId = orderId;
         this.quantity = quantity;
         this.price = price;
     }
@@ -40,20 +38,6 @@ public class OrderItem implements Serializable {
      */
     public void setId(int id) {
         this.id = id;
-    }
-
-    /**
-     * @return the orderId
-     */
-    public int getOrderId() {
-        return orderId;
-    }
-
-    /**
-     * @param orderId the orderId to set
-     */
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
     }
 
     /**

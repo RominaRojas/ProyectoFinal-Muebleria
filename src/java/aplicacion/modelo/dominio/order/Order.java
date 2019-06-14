@@ -6,29 +6,34 @@
 package aplicacion.modelo.dominio.order;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  *
  * @author laura
  */
-public class Order implements Serializable{
-    
+public class Order implements Serializable {
+
     private int id;
     private int orderNumber;
     private int userId;
     private Calendar createdAt;
     private int state;
+    private List<OrderItem> itemList = new ArrayList<>();
 
     public Order() {
+        
     }
 
-    public Order(int id, int orderNumber, int userId, Calendar date, int state) {
+    public Order(int id, int orderNumber, int userId, Calendar date, int state, List<OrderItem> itemList) {
         this.id = id;
         this.orderNumber = orderNumber;
         this.userId = userId;
         this.createdAt = date;
         this.state = state;
+        this.itemList = itemList;
     }
 
     public int getId() {
@@ -70,5 +75,22 @@ public class Order implements Serializable{
     public void setState(int state) {
         this.state = state;
     }
-    
+
+    /**
+     * @return the itemList
+     */
+    public List<OrderItem> getItemList() {
+        return itemList;
+    }
+
+    /**
+     * @param itemList the itemList to set
+     */
+    public void setItemList(List<OrderItem> itemList) {
+        this.itemList = itemList;
+    }
+
+    public void addItem(OrderItem item) {
+        this.itemList.add(item);
+    }
 }

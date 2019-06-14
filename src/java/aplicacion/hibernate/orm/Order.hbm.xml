@@ -24,6 +24,12 @@
         <property name="state" type="integer">
             <column name="state" not-null="true" />
         </property> 
+    
+        <list name="itemList" cascade="all-delete-orphan"> 
+            <key column="order_id" /> 
+            <index column="order" /> 
+            <one-to-many class="aplicacion.modelo.dominio.order.OrderItem" /> 
+        </list>  
       
     </class>    
 </hibernate-mapping>

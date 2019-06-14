@@ -6,6 +6,8 @@
 package aplicacion.modelo.dominio.product;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,7 +16,8 @@ import java.io.Serializable;
 public class Category implements Serializable{
     private int id;
     private String name;
-
+    private List<Product> productList = new ArrayList<>();
+    
     public Category() {
     }
 
@@ -50,7 +53,23 @@ public class Category implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+
+    /**
+     * @return the productList
+     */
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    /**
+     * @param productList the productList to set
+     */
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
     
-    
+    public void addItem(Product product) {
+        this.productList.add(product);
+    }
     
 }

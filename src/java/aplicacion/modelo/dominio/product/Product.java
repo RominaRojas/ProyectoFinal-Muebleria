@@ -9,20 +9,19 @@ public class Product implements Serializable {
     private double price;
     private String name;
     private String description;
-    private int categoryId;
 
     public Product() {
 
     }
 
-    public Product(int id, int stock, double price, String name, String description, int categoryId) {
+    public Product(int id, int stock, double price, String name, String description) {
         this.id = id;
 
         this.stock = stock;
         this.price = price;
         this.name = name;
         this.description = description;
-        this.categoryId = categoryId;
+       
     }
 
     public int getId() {
@@ -65,11 +64,4 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
 }

@@ -8,7 +8,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/muebleria</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">123456789</property>
-        <mapping resource="aplicacion/modelo/dominio/user/User.hbm.xml"/>
+        <mapping resource="aplicacion/hibernate/orm/User.hbm.xml"/>
         <mapping resource="aplicacion/hibernate/orm/Product.hbm.xml"/>
         <mapping resource="aplicacion/hibernate/orm/Category.hbm.xml"/>
         <mapping resource="aplicacion/hibernate/orm/Order.hbm.xml"/>

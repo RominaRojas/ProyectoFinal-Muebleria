@@ -9,11 +9,12 @@
     <h:body>
         <p:panel id="panelVentaDeMuebles" header="Ventas de Muebles">
             <h:form>
+                <p:graphicImage name="Imagen/logueo.jpg" />
                 <h:panelGrid id="ventaDeMuebles" columns="2" cellpadding="8">
-                <p:outputLabel id="lblLogin" value="Email:"/>
-                <p:inputText id="Login"/>           
-                <p:outputLabel id="lblPassword" value="Contraseña:"/>
-                <p:inputText id="password"/>
+                    <p:outputLabel id="lblLogin" value="Email:"/>
+                    <p:inputText id="Login"/>           
+                    <p:outputLabel id="lblPassword" value="Contraseña:"/>
+                    <p:password id="password"/>
                 </h:panelGrid>
                 <p:commandButton value="Ingresar"/>
             </h:form>

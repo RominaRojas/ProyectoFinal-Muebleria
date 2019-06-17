@@ -13,17 +13,20 @@ import java.io.Serializable;
  */
 public class OrderItem implements Serializable {
 
+
     private int id;
     private int quantity;
     private double price;
+    private String productName;
 
     public OrderItem() {
     }
 
-    public OrderItem(int id, int quantity, double price) {
+    public OrderItem(int id, int quantity, double price, String productName) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
+        this.productName = productName;
     }
 
     /**
@@ -68,4 +71,19 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
+    
+    /**
+     * @return the productName
+     */
+    public String getProductName() {
+        return productName;
+    }
+
+    /**
+     * @param productName the productName to set
+     */
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+    
 }

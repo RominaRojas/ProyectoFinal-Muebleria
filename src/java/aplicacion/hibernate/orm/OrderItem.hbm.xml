@@ -15,6 +15,10 @@
         <property name="price" type="double">
             <column name="price" not-null="true" />
         </property> 
-      
+        
+        <property name="productName" type="string">
+            <column name="product_name" length="100" not-null="true" />
+        </property> 
+        
     </class>
 </hibernate-mapping>

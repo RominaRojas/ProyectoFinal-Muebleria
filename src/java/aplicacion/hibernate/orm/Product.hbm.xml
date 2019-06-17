@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
     <class  name="aplicacion.modelo.dominio.product.Product"  catalog="muebleria" table="product" optimistic-lock="version" >
     
-        <id name="id" type="integer">
+        <id name="id" type="int">
             <column name="product_id"/>
-            <generator class="identity"/>                
+            <generator class="native"/>                
         </id>
   
-        <property name="stock" type="integer">
+        <property name="stock" type="int">
             <column name="stock"  not-null="true" />
         </property>    
   
@@ -24,17 +24,7 @@
         <property name="description" type="text">
             <column name="description"  not-null="true" />
         </property>    
-      
-        <property name="categoryId" type="integer">
-            <column name="category_Id"  not-null="true" />
-        </property>  
-        
-        <list name="productList" cascade="all-delete-orphan"> 
-            <key column="product_id" /> 
-            <index column="order" /> 
-            <one-to-many class="aplicacion.modelo.dominio.product.Category" /> 
-        </list>  
-            
+                          
     </class>
   
 </hibernate-mapping>

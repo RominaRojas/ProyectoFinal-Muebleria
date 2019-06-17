@@ -68,7 +68,7 @@ public class Category implements Serializable{
         this.productList = productList;
     }
     
-    public void addItem(Product product) {
+    public void addProductList(Product product) {
         this.productList.add(product);
     }
     

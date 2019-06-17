@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
     <class  name="aplicacion.modelo.dominio.order.Order" catalog="muebleria" table="order" optimistic-lock="version" >
   
-        <id name="id" type="integer">
+        <id name="id" type="int">
             <column name="order_id"/>
-            <generator class="identity"/>                
+            <generator class="native"/>                
         </id> 
      
-        <property name="orderNumber" type="integer">
+        <many-to-one name="user" class="aplicacion.modelo.dominio.user.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        
+        <property name="orderNumber" type="int">
             <column name="order_number"  not-null="true" />
         </property> 
-      
-        <property name="userId" type="integer">
-            <column name="user_id" not-null="true" />
-        </property> 
-      
+            
         <property name="createdAt" type="calendar">
             <column name="created_at" not-null="true" />
         </property> 
       
-        <property name="state" type="integer">
+        <property name="state" type="int">
             <column name="state" not-null="true" />
         </property> 
     
         <list name="itemList" cascade="all-delete-orphan"> 
             <key column="order_id" /> 
-            <index column="order" /> 
+            <index column="orden" /> 
             <one-to-many class="aplicacion.modelo.dominio.order.OrderItem" /> 
-        </list>  
+        </list>
       
     </class>    
 </hibernate-mapping>

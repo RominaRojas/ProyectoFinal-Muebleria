@@ -6,11 +6,21 @@
 package aplicacion.hibernate.dao;
 
 import aplicacion.modelo.dominio.product.Category;
+import java.util.List;
 
 /**
  *
  * @author Lilia Said
  */
 public interface ICategoryDAO {
+
     void create(Category category);
+
+    void update(Category category);
+
+    void delete(Category category);
+
+    Category getCategoryById(int categoryId);
+
+    List<Category> getCategoryList();
 }

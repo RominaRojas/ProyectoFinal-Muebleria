@@ -6,11 +6,21 @@
 package aplicacion.hibernate.dao;
 
 import aplicacion.modelo.dominio.product.Product;
+import java.util.List;
 
 /**
  *
  * @author Lilia Said
  */
 public interface IProductDAO {
+
     void create(Product product);
+
+    void update(Product product);
+
+    void delete(Product product);
+
+    Product getProductById(int productId);
+
+    List<Product> getProductList();
 }

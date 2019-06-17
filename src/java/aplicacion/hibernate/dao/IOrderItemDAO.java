@@ -6,11 +6,21 @@
 package aplicacion.hibernate.dao;
 
 import aplicacion.modelo.dominio.order.OrderItem;
+import java.util.List;
 
 /**
  *
  * @author Lilia Said
  */
 public interface IOrderItemDAO {
+
     void create(OrderItem orderItem);
+
+    void update(OrderItem orderItem);
+
+    void delete(OrderItem orderItem);
+
+    OrderItem getOrderItemById(int orderItemId);
+
+    List<OrderItem> getOrderItemList();
 }

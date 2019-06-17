@@ -15,12 +15,12 @@ public class OrderItem implements Serializable {
 
     private int id;
     private int quantity;
-    private float price;
+    private double price;
 
     public OrderItem() {
     }
 
-    public OrderItem(int id, int quantity, float price) {
+    public OrderItem(int id, int quantity, double price) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
@@ -57,14 +57,14 @@ public class OrderItem implements Serializable {
     /**
      * @return the price
      */
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
     /**
      * @param price the price to set
      */
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

@@ -14,7 +14,22 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <p:outputPanel>
+              <style type="text/css">
+    h1{
+       font-size: 20px;
+       color: blue;
+    }        
+    h2 {
+        font-weight: bold;
+        font-size: 15px;
+        
+       }
+    h3{
+        font-size: 12px;
+        font-family: sans-serif;
+    }
+    </style>
+        <p:outputPanel style="width: 100%">
           <p:inputText  id="user" value="" placeholder="user" style="margin-left: 50%"/>
           <p:password id="password" value="" feedback="true"  placeholder="password"/>  
           <p:button  value="login" icon="pi pi-star" />
@@ -38,9 +53,90 @@ and open the template in the editor.
                     </p:panelMenu> 
                 </h:form>
                     <p:panelGrid columns="4">
-                        <p:outputPanel>
-                            
+                        <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/mueble_cocina.jpg" />
+                            <h1> $5.890</h1>
+                            <h2>Rack de Cocina</h2>
+                            <h3>material: agromerado prensado <br/>Colores:cedro,blanco,beige<br/>
+                            Medidas 180 cm x 150 cm</h3>
                         </p:outputPanel>
+                         <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/rack frutero.jpg" />
+                            <h1> $2.299</h1>
+                            <h2>Rack Frutero Centro Estant</h2>
+                            <h3>material: Folio  <br/>Colores:cedro,blanco,beige<br/>
+                            Medidas 76 cm x 60 cm</h3>
+                         </p:outputPanel>
+                        <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/bajo_mesada.jpg" />
+                            <h1> $3.299</h1>
+                            <h2>Bajo Mesada DL608 Delos</h2>
+                            <h3>material: Melamina <br/>Colores:Blanco y Fresno <br/>
+                            Medidas 80 cm x 82 cm</h3>
+                         </p:outputPanel>
+                         <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/mesa.jpg" />
+                            <h1> $8.999</h1>
+                            <h2>Mesa de MDF Escandinava Eames Z216 </h2>
+                            <h3>material: MDF  <br/>Colores:Blanco <br/>
+                            Medidas 74 cm x 120 cm</h3>
+                         </p:outputPanel>
+                        <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/alacena.jpg" />
+                            <h1> $3.639</h1>
+                            <h2>Alacena Melamina Blanco SLB120B </h2>
+                            <h3>material: Melamina  <br/>Colores:Blanco ,caoba, beige<br/>
+                            Medidas 60 cm x 120 cm</h3>
+                         </p:outputPanel>
+                        <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/bajomesada.jpg" />
+                            <h1> $4.499</h1>
+                            <h2>Bajo Mesada DLR614BHA Delos </h2>
+                            <h3>material: Melamina  <br/>Colores:Blanco y Wengue<br/>
+                            Medidas 140 cm x 82 cm</h3>
+                         </p:outputPanel>
+                        <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/mesa_auxiliar.jpg" />
+                            <h1> $1.999</h1>
+                            <h2>Mesa Auxiliar Moderna Bari </h2>
+                            <h3>material: Polipropileno   <br/>Colores:Negro <br/>
+                            Medidas 40 cm x 75 cm</h3>
+                         </p:outputPanel>
+                         <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/centro_planchado.jpg" />
+                            <h1> $3.599</h1>
+                            <h2>Centro planchador Delos </h2>
+                            <h3>material: Aglomerado  <br/>Colores:Negro, Blanco <br/>
+                            Medidas 85 cm x 75 cm</h3>
+                         </p:outputPanel>
+                         <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/rack_tv.jpg" />
+                            <h1> $1.999</h1>
+                            <h2>Rack de TV Paraiso MT4001P</h2>
+                            <h3>material:  Melamina <br/>Colores:Negro, Blanco,caoba <br/>
+                            Medidas 50 cm x 128 cm</h3>
+                         </p:outputPanel>
+                        <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/alacena_f.jpg" />
+                            <h1> $1.999</h1>
+                            <h2>Alacena Funcional Blanca con estanteria</h2>
+                            <h3>material:Melamina Aglomerado  <br/>Colores:Negro, Blanco,caoba <br/>
+                            Medidas 60 cm x 100 cm</h3>
+                         </p:outputPanel>
+                        <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/biblioteca.jpg" />
+                            <h1> $1.199</h1>
+                            <h2>Biblioteca L9P Paraiso Centro Estant</h2>
+                            <h3>material:Melamina  <br/>Colores:Negro, Blanco,caoba <br/>
+                            Medidas 180cm x 40 cm</h3>
+                         </p:outputPanel>
+                        <p:outputPanel style="width:200px ">
+                            <p:graphicImage url="/resources/Imagen/mesa_luz.jpg" />
+                            <h1> $1.199</h1>
+                            <h2>Set de Mesas de Luz MLSBLX2 Centro Estant</h2>
+                            <h3>material:Melamina  <br/>Colores:Negro, Blanco,caoba <br/>
+                            Medidas 70cm x 43 cm</h3>
+                         </p:outputPanel>
                     </p:panelGrid>
                
             </p:panelGrid>

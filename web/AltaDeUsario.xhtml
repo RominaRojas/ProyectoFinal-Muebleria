@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+      
+    </h:head>
+    <h:body>
+        <h:form id="frmRegistrarUsuario">
+                <p:growl id="mensajes" showDetail="true"/>
+                <p:panel id="pnlPrincipal" header="Crer Cuenta">
+                    <h:panelGrid columns="2">
+                        <p:outputLabel id="txtName" value="Nombre:"/>
+                        <p:inputText id="txtNombre"  
+                                 required="true"
+                                 requiredMessage="Debe ingresar su nombre"/>
+                        <p:outputLabel id="txtSurname" value="Apellido:"/>
+                        <p:inputText id="txtApellido"  
+                                    required="true"
+                                    requiredMessage="Debe ingresar su apellido"/>
+                        <p:outputLabel id="lblDNI" value="DNI:"/>
+                        <p:inputNumber id="DNI"  
+                                 required="true"
+                                 requiredMessage="Debe ingresar su DNI"/>
+                        <p:outputLabel id="lblFechaDeNacimiento" value="Fecha De Nacimiento:"/>
+                        <p:inputText id="txtFechaDeNacimiento"
+                                    required="true"
+                                    requiredMessage="Debe ingresar su fecha de nacimiento"/>
+                        <p:outputLabel id="lblEmail" value="Email:"/>
+                        <p:inputText id="txtEmail"  
+                                 required="true"
+                                 requiredMessage="Debe ingresar su email"/>
+                        <p:outputLabel id="lblContraseña" value="Contraseña:"/>
+                        <p:password id="txtContraseña"  
+                                    required="true"
+                                    requiredMessage="Debe ingresar su contraseña"/>
+                        <br></br>
+                        <p:commandButton id="btnAceptar" value="Aceptar" 
+                                         update="mensajes"
+                                         style="margin: 20px"/>
+                    </h:panelGrid>
+                </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

@@ -12,11 +12,12 @@
                 <p:graphicImage name="Imagen/logueo.jpg" />
                 <h:panelGrid id="ventaDeMuebles" columns="2" cellpadding="8">
                     <p:outputLabel id="lblLogin" value="Email:"/>
-                    <p:inputText id="Login"/>           
+                    <p:inputText id="Login" value="#{loginFormBean.email}"/>           
                     <p:outputLabel id="lblPassword" value="Contraseña:"/>
-                    <p:password id="password"/>
+                    <p:password id="password" value="#{loginFormBean.password}"/>
+                <p:commandButton value="Ingresar"  action="#{loginFormBean.verifyCredentials()}"/>
+                <p:commandButton value="Registrar"/>
                 </h:panelGrid>
-                <p:commandButton value="Ingresar"/>
             </h:form>
         </p:panel>
     </h:body>

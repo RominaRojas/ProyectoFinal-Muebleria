@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <head>
-        <title>home</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        
+    </h:head>
     <body>
-              <style type="text/css">
+    <style>
     h1{
        font-size: 20px;
        color: blue;
@@ -29,30 +22,32 @@ and open the template in the editor.
         font-family: sans-serif;
     }
     </style>
-        <p:outputPanel style="width: 100%">
-          <p:inputText  id="user" value="" placeholder="user" style="margin-left: 50%"/>
-          <p:password id="password" value="" feedback="true"  placeholder="password"/>  
-          <p:button  value="login" icon="pi pi-star" />
-          <p:button  value="sing up" icon="pi pi-user"/>
-        </p:outputPanel>
-       
-        <p:graphicImage url="/resources/Imagen/banner_m.jpg" width="100%"/>
-            <div>
-                <p:panelGrid columns="2">         
+        <div>
+            <h:form>
+               <p:outputPanel style="width: 100%">
+               <p:inputText  id="user" value="" placeholder="user" style="margin-left: 50%"/>
+               <p:password id="password" value="" feedback="true"  placeholder="password"/> 
+               <p:button  value="login" icon="pi pi-star" />
+               <p:button  value="sing up" icon="pi pi-user"/>
+               </p:outputPanel>
+            </h:form>
+            <p:graphicImage url="/resources/Imagen/banner_m.jpg" width="100%"/>
+            
+            <p:panelGrid columns="2"> 
                 <h:form>
-                    <p:panelMenu style="width:210px; align-self: flex-start ">
-                        <p:submenu label="Productos">
-                        <p:menuitem value="link1" outcome="" />
+                    <p:panelMenu style="width:250px;margin-bottom:900px">
+                        <p:submenu label="Muebles para Dormitorio">
+                        <p:menuitem value="Camas - Chifonniers... "/>
                         </p:submenu>
-                        <p:submenu label="link2">
-                        <p:menuitem value="link2"  outcome="" />
+                        <p:submenu label="Muebles para Cocina">
+                        <p:menuitem value="Alacenas - Despenseros... "/>
                         </p:submenu>
-                        <p:submenu label="link3">
-                        <p:menuitem value="link3" outcome=""/>
-                        </p:submenu>  
+                        <p:submenu label="Muebles para Living">
+                        <p:menuitem value="Mesas - Bibliotecas... "/>
+                        </p:submenu>
                     </p:panelMenu> 
                 </h:form>
-                    <p:panelGrid columns="4">
+                <p:panelGrid columns="4">
                         <p:outputPanel style="width:200px ">
                             <p:graphicImage url="/resources/Imagen/mueble_cocina.jpg" />
                             <h1> $5.890</h1>
@@ -111,21 +106,21 @@ and open the template in the editor.
                          </p:outputPanel>
                          <p:outputPanel style="width:200px ">
                             <p:graphicImage url="/resources/Imagen/rack_tv.jpg" />
-                            <h1> $1.999</h1>
+                            <h1> $2.600</h1>
                             <h2>Rack de TV Paraiso MT4001P</h2>
                             <h3>material:  Melamina <br/>Colores:Negro, Blanco,caoba <br/>
                             Medidas 50 cm x 128 cm</h3>
                          </p:outputPanel>
                         <p:outputPanel style="width:200px ">
                             <p:graphicImage url="/resources/Imagen/alacena_f.jpg" />
-                            <h1> $1.999</h1>
+                            <h1> $3.499</h1>
                             <h2>Alacena Funcional Blanca con estanteria</h2>
                             <h3>material:Melamina Aglomerado  <br/>Colores:Negro, Blanco,caoba <br/>
                             Medidas 60 cm x 100 cm</h3>
                          </p:outputPanel>
                         <p:outputPanel style="width:200px ">
                             <p:graphicImage url="/resources/Imagen/biblioteca.jpg" />
-                            <h1> $1.199</h1>
+                            <h1> $2.200</h1>
                             <h2>Biblioteca L9P Paraiso Centro Estant</h2>
                             <h3>material:Melamina  <br/>Colores:Negro, Blanco,caoba <br/>
                             Medidas 180cm x 40 cm</h3>
@@ -138,9 +133,7 @@ and open the template in the editor.
                             Medidas 70cm x 43 cm</h3>
                          </p:outputPanel>
                     </p:panelGrid>
-               
             </p:panelGrid>
-                
-       </div>  
+        </div>
     </body>
 </html>

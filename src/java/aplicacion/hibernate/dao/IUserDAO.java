@@ -21,5 +21,5 @@ public interface IUserDAO {
 
     List<User> getUserList();
 
-    User verifyCredentials(String email, String password);
+    User verifyCredentials(String email, String password);    
 }

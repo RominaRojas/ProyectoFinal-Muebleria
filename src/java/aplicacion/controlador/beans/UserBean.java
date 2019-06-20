@@ -20,12 +20,17 @@ import javax.faces.bean.RequestScoped;
 public class UserBean {
 
    private IUserDAO iUserDAO;
+   
     public UserBean() {
         iUserDAO = new UserDAOImp();
     }
     
     public User verifyCredentials(String email, String password) {
      return iUserDAO.verifyCredentials(email, password);
+    }
+    
+    public void registerNewUser(User user) {
+        iUserDAO.create(user);
     }
 
     public IUserDAO getiUserDAO() {
@@ -36,4 +41,11 @@ public class UserBean {
         this.iUserDAO = iUserDAO;
     }
     
+    public User getUserByEmail(String email) {
+        return iUserDAO.getUserByEmail(email);
+    }
+    public boolean isEmailRegistered(String email) {
+        User user = iUserDAO.getUserByEmail(email);
+        return (user != null);
+    }
 }

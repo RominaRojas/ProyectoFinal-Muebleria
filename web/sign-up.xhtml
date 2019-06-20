@@ -3,50 +3,79 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-      
+
     </h:head>
     <h:body>
-        <h:form id="frmRegistrarUsuario">
-                <p:growl id="mensajes" showDetail="true"/>
-                <p:panel id="pnlPrincipal" header="Crer Cuenta">
-                    <h:panelGrid columns="2">
-                        <p:outputLabel id="txtName" value="Nombre:"/>
-                        <p:inputText id="txtNombre"  
-                                 required="true"
-                                 requiredMessage="Debe ingresar su nombre"/>
-                        <p:outputLabel id="txtSurname" value="Apellido:"/>
-                        <p:inputText id="txtApellido"  
-                                    required="true"
-                                    requiredMessage="Debe ingresar su apellido"/>
-                        <p:outputLabel id="lblDNI" value="DNI:"/>
-                        <p:inputNumber id="DNI" 
-                                 required="true"
-                                 requiredMessage="Debe ingresar su DNI"/>
-                        <p:outputLabel id="lblFechaDeNacimiento" value="Fecha De Nacimiento:"/>
-                        <p:inputText id="txtFechaDeNacimiento"
-                                    required="true"
-                                    requiredMessage="Debe ingresar su fecha de nacimiento"/>
-                        <p:outputLabel id="lblEmail" value="Email:"/>
-                        <p:inputText id="txtEmail"  
-                                 required="true"
-                                 requiredMessage="Debe ingresar su email"/>
-                        <p:outputLabel id="lblContraseña" value="Contraseña:"/>
-                        <p:password id="txtContraseña"  
-                                    required="true"
-                                    requiredMessage="Debe ingresar su contraseña">
-                           <f:validateLength minimum="6" />
-                           <p:ajax update="msgContraseña" event="keyup" />
-                        </p:password>
-                        <p:message for="txtContraseña" id="msgContraseña" display="contraseña" />
-                        <br></br>
-                        <p:commandButton id="btnAceptar" value="Aceptar" 
-                                         update="mensajes"
-                                         style="margin: 20px"/>
-                    </h:panelGrid>
-                </p:panel>
-        </h:form>
+
+        <ui:composition template="./resources/Template/FaceletTemplate.xhtml">
+            <ui:define name="top"></ui:define>
+            <ui:define name="content">
+                <h:form id="frmRegistrarUsuario" style="margin:0 auto;max-width:400px;">
+                    <p:growl id="mensajes" showDetail="true"/>
+                    <p:panel id="pnlPrincipal" header="Datos de Usuario">
+                        <h:panelGrid columns="2">
+                            <p:outputLabel id="txtName" value="Nombre:"/>
+                            <p:inputText id="txtNombre"  
+                                         required="true"
+                                         requiredMessage="Debe ingresar su nombre"
+                                         value="#{signUpFormBean.name}"/>
+                                         
+                            <p:outputLabel id="txtSurname" value="Apellido:"/>
+                            <p:inputText id="txtApellido"  
+                                         required="true"
+                                         requiredMessage="Debe ingresar su apellido"
+                                         value="#{signUpFormBean.surname}"/>
+                            <p:outputLabel id="lblDNI" value="DNI:"/>
+                            <p:inputNumber id="DNI" 
+                                           required="true"
+                                           requiredMessage="Debe ingresar su DNI"
+                                           decimalPlaces="0" maxValue="99999999"
+                                           value="#{signUpFormBean.dni}"/>
+
+                            <p:outputLabel id="lblFechaDeNacimiento" 
+                                           for="txtFechaDeNacimiento" 
+                                           value="Fecha De Nacimiento:" />
+                            <p:calendar id="txtFechaDeNacimiento"
+                                        yearRange="c-80:c-18"
+                                        readonly="true"
+                                        navigator="true"
+                                        required="true"
+                                        requiredMessage="Debe ingresar su fecha de nacimiento" 
+                                        showOn="button" 
+                                        value="#{signUpFormBean.dateOfBirth}"/>
+
+                            <p:outputLabel id="lblEmail" value="Email:"/>
+                            <p:inputText id="txtEmail"  
+                                         required="true"
+                                         requiredMessage="Debe ingresar su email"
+                                         validatorMessage="El E-mail es invalido"
+                                         value="#{signUpFormBean.email}">
+                                <f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)"/>
+                                    
+                            </p:inputText> 
+                            <p:outputLabel id="lblContraseña" value="Contraseña:"/>
+                            <p:password id="txtContraseña"  
+                                        required="true"
+                                        requiredMessage="Debe ingresar su contraseña"
+                                        value="#{signUpFormBean.password}">
+                                <f:validateLength minimum="8" />
+                                <p:ajax update="msgContraseña" event="keyup" />
+                            </p:password>
+
+                            <br></br>
+                            <p:commandButton id="btnAceptar" value="Registrar" 
+                                             update="mensajes"
+                                             style="margin: 20px"
+                                             action="#{signUpFormBean.registerNewUser()}"/>
+                            <br></br>
+                            <p:message for="txtContraseña" id="msgContraseña" display="contraseña" />
+                        </h:panelGrid>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
-

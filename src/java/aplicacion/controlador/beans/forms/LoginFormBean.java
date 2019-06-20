@@ -76,7 +76,7 @@ public class LoginFormBean implements Serializable {
         User user = userBean.verifyCredentials(email, password);
         if (user != null) {
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", user);
-            resultado = "Home?faces-redirect=true";
+            resultado = "home?faces-redirect=true";
         } else {
             FacesContext fc = FacesContext.getCurrentInstance();
             fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Accesso Denegado", "Credenciales Incorrectas"));
@@ -86,6 +86,6 @@ public class LoginFormBean implements Serializable {
     }
     
     public String gotToSignUp(){
-        return "Sign-up?faces-redirect=true";
+        return "sign-up?faces-redirect=true";
     }
 }

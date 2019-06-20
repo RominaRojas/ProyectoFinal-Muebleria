@@ -1,0 +1,39 @@
+
+.product-imagen{
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.product-title{
+    text-transform: uppercase;
+}
+
+.product-price {
+    font-size: x-large;
+    font-weight: bold;
+    color: #00bcd4;
+}
+
+.product-button {
+    margin-left: 10px;
+}
+
+.product-imagen {
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.product-info, 
+.product-imagen {
+    padding: 0 20px !important;
+}
+
+.page{
+    max-width: 800px;
+    margin: 0 auto !important;
+}
+
+.margin-top-20{
+    margin-bottom:20px;
+}
+

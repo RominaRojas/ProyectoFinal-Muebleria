@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head/>
+    <h:body>
+
+        <ui:composition template="./resources/Template/FaceletTemplate.xhtml">
+
+            <ui:define name="top">
+                <p:outputPanel>
+                    <p:inputText  id="user" value="" placeholder="user" style="margin-left: 50%"/>
+                    <p:password id="password" value="" feedback="true"  placeholder="password"/>  
+                    <p:button  value="login" icon="pi pi-star" />
+                    <p:button  value="sing up" icon="pi pi-user"/>
+                </p:outputPanel>
+            </ui:define>
+            <ui:define name="content">
+
+                <p:outputPanel>
+                    <div class="ui-grid page">
+                        <div class="ui-grid-row">                    
+                            <div class="ui-g-12 ui-md-6 ui-lg-5 product-imagen" > 
+                                <p:graphicImage name="Imagen/no-product.jpg" />
+                            </div>
+                            <div class="ui-g-12 ui-md-6 ui-lg-7 product-info">
+                                <div class="ui-grid">
+                                    <div class="ui-grid-row margin-top-20">       
+                                        <h1 class="product-title">
+                                            silla
+                                        </h1>
+                                    </div>
+                                    <div class="ui-grid-row margin-top-20">   
+                                        <span class="product-price">
+                                            $ 650,00
+                                        </span>
+                                    </div>
+                                    <h:form class="margin-top-20"> 
+                                        <h3>Cantidad</h3>
+                                        <p:inputNumber id="product-qty" value="1" decimalPlaces="0" size="3"/>
+                                        <p:commandButton class="product-button" value="Calcular"/>
+                                    </h:form>
+
+                                    <span class="margin-top-20">
+                                        255 articulos disponibles
+                                    </span>
+
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="ui-grid-row margin-top-20">                    
+                            <div class="ui-g-12 " > 
+                                <h1> Descripción </h1>
+                                Silla de madera Patria roble
+                            </div>
+                        </div>
+                    </div>
+                </p:outputPanel>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

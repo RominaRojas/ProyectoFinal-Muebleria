@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        <h3 style="margin-top:0">Mis Pedidos</h3>
+      <p:separator />
+      <h3 style="margin-left: 80%">
+        <p:inputNumber id="product-qty" value="1" decimalPlaces="0" size="3"/>
+        articulo(s)
+      </h3>
+      <p:dataTable var="car" >
+           <p:column headerText="N° de Pedido">
+               <h:outputText value="1098"/>
+           </p:column>
+ 
+           <p:column headerText="Fecha">
+           </p:column>
+ 
+           <p:column headerText="Total del Pedido">
+           </p:column>
+ 
+</p:dataTable>
+    </h:body>
+</html>
+

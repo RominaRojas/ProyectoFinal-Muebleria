@@ -2,24 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        
+
     </h:head>
     <h:body>
-        <p:panel id="panelVentaDeMuebles" header="Ventas de Muebles">
-            <h:form>
-                <p:graphicImage name="Imagen/logueo.jpg" />
-                <h:panelGrid id="ventaDeMuebles" columns="2" cellpadding="8">
-                    <p:outputLabel id="lblLogin" value="Email:"/>
-                    <p:inputText id="Login" value="#{loginFormBean.email}"/>           
-                    <p:outputLabel id="lblPassword" value="Contraseña:"/>
-                    <p:password id="password" value="#{loginFormBean.password}"/>
-                    <p:commandButton value="Ingresar"  action="#{loginFormBean.verifyCredentials()}"/>
-                    <p:commandButton value="Registrar"/>
-                </h:panelGrid>
-            </h:form>
-        </p:panel>
+        <ui:composition template="./resources/Template/FaceletTemplate.xhtml">
+            <ui:define name="top"></ui:define>
+            <ui:define name="content">
+                <p:panel id="panelVentaDeMuebles" header="Ingreso de usuario">
+                    <center>
+                        <h:form>
+                            <p:graphicImage name="Imagen/logueo.jpg" />
+                            <p:growl id="mensajes" showDetail="true"/>
+                            <h:panelGrid id="ventaDeMuebles" columns="2" cellpadding="8">
+                                <p:outputLabel id="lblLogin" value="Email:"/>
+                                <p:inputText id="Login" value="#{loginFormBean.email}"/>           
+                                <p:outputLabel id="lblPassword" value="Contraseña:"/>
+                                <p:password id="password" value="#{loginFormBean.password}"/>
+
+                                <p:commandButton value="Ingresar"
+                                                 action="#{loginFormBean.verifyCredentials()}"
+                                                 update="mensajes"/>
+
+                                <p:commandButton value="Registrar"
+                                                 action="#{loginFormBean.gotToSignUp()}"/>
+                            </h:panelGrid>
+                        </h:form>
+
+                    </center>
+                </p:panel>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 

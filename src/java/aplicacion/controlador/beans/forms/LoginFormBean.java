@@ -20,10 +20,11 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean
 @RequestScoped
-public class LoginFormBean implements Serializable{
-    @ManagedProperty(value="#{userBean}")
-    private UserBean userBean;  
-    
+public class LoginFormBean implements Serializable {
+
+    @ManagedProperty(value = "#{userBean}")
+    private UserBean userBean;
+
     private String email;
     private String password;
 
@@ -68,18 +69,23 @@ public class LoginFormBean implements Serializable{
     public void setUserBean(UserBean userBean) {
         this.userBean = userBean;
     }
+
+    public String verifyCredentials() {
+        String resultado = "";
+        
+        User user = userBean.verifyCredentials(email, password);
+        if (user != null) {
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", user);
+            resultado = "Home?faces-redirect=true";
+        } else {
+            FacesContext fc = FacesContext.getCurrentInstance();
+            fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Accesso Denegado", "Credenciales Incorrectas"));
+            
+        }
+        return resultado;
+    }
     
-    
-    public String verifyCredentials (){
-        String resultado = ""; 
-    User user = userBean.verifyCredentials(email, password);
-    if (user != null){
-      FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", user);
-    } 
-    else{
-        FacesContext fc = FacesContext.getCurrentInstance();
-        fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Accesso Denegado", "Credenciales Incorrectas"));
-    }   
-    return resultado;
-   }
+    public String gotToSignUp(){
+        return "Sign-up?faces-redirect=true";
+    }
 }

@@ -5,6 +5,7 @@
  */
 package aplicacion.modelo.dominio.order;
 
+import aplicacion.modelo.dominio.product.Product;
 import java.io.Serializable;
 
 /**
@@ -22,6 +23,17 @@ public class OrderItem implements Serializable {
     public OrderItem() {
     }
 
+    public OrderItem(Product product, int quantity){
+        this.quantity = quantity;
+        this.productName = product.getName();
+        this.price = product.getPrice();
+    }
+    public OrderItem(int quantity, double price, String productName) {
+        this.quantity = quantity;
+        this.price = price;
+        this.productName = productName;
+    }
+    
     public OrderItem(int id, int quantity, double price, String productName) {
         this.id = id;
         this.quantity = quantity;

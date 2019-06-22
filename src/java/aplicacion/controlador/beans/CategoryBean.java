@@ -8,6 +8,7 @@ package aplicacion.controlador.beans;
 import aplicacion.hibernate.dao.ICategoryDAO;
 import aplicacion.hibernate.dao.imp.CategoryDAOImp;
 import aplicacion.modelo.dominio.product.Category;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -18,16 +19,9 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class CategoryBean {
+public class CategoryBean implements Serializable{
 
-    ICategoryDAO iCategoryDAO;
-
-    /**
-     * Creates a new instance of CategoryBean
-     */
-    public CategoryBean() {
-        iCategoryDAO = new CategoryDAOImp();
-    }
+    private ICategoryDAO iCategoryDAO;
 
     public ICategoryDAO getiCategoryDAO() {
         return iCategoryDAO;
@@ -36,8 +30,15 @@ public class CategoryBean {
     public void setiCategoryDAO(ICategoryDAO iCategoryDAO) {
         this.iCategoryDAO = iCategoryDAO;
     }
-
+    /**
+     * Creates a new instance of CategoryBean
+     */
+    public CategoryBean() {
+        iCategoryDAO = new CategoryDAOImp();
+    }
+    
     public List<Category> getCategoryList(){
         return iCategoryDAO.getCategoryList();
     }
+    
 }

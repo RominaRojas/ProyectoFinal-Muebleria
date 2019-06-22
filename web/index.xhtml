@@ -8,125 +8,61 @@
 
     </h:head>
     <h:body>
-        <style>
-            h1{
-                font-size: 20px;
-                color: blue;
-            }        
-            h2 {
-                font-weight: bold;
-                font-size: 15px;
-
-            }
-            h3{
-                font-size: 12px;
-                font-family: sans-serif;
-            }
-        </style>
         <ui:composition template="./resources/Template/FaceletTemplate.xhtml">
-
             <ui:define name="content">
+                <style>
+                    h1{
+                        font-size: 20px;
+                        color: blue;
+                    }        
+                    h2 {
+                        font-weight: bold;
+                        font-size: 15px;
+
+                    }
+                    h3{
+                        font-size: 12px;
+                        font-family: sans-serif;
+                    }
+                </style>
+                <script type="text/javascript">
+                    function refreshCategorySelection(item) {
+                        PF('category-menu').menuitemLinks.each(function (nIndex) {
+                            $(this).removeClass('ui-state-active');
+                            if (item == nIndex) {
+                                $(this).addClass('ui-state-active');
+                            }
+                        });
+                    }
+                </script>
+
                 <p:graphicImage url="/resources/Imagen/banner-m.jpg" width="100%"/>
 
-                <p:panelGrid columns="2"> 
+                <p:panelGrid columns="2" columnClasses="alignTop,alignTop">
                     <h:form>
-                        <p:menu style="width:250px;margin-bottom:900px">
-                            <p:submenu label="Categorias">
-                                <p:menuitem value="Camas - Chifonniers... "/>
-                                <p:menuitem value="Camas - Chifonniers... "/>
-                                <p:menuitem value="Camas - Chifonniers... "/>
-                                <p:menuitem value="Camas - Chifonniers... "/>
-                            </p:submenu> 
-
-                        </p:menu> 
+                        <p:menu widgetVar="category-menu" model="#{categoryFormBean.categoryMenuModel}" />
                     </h:form>
-                    <p:panelGrid columns="4">
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/mueble_cocina.jpg" />
-                            <h1> $5.890</h1>
-                            <h2>Rack de Cocina</h2>
-                            <h3>material: agromerado prensado <br/>Colores:cedro,blanco,beige<br/>
-                                Medidas 180 cm x 150 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/rack frutero.jpg" />
-                            <h1> $2.299</h1>
-                            <h2>Rack Frutero Centro Estant</h2>
-                            <h3>material: Folio  <br/>Colores:cedro,blanco,beige<br/>
-                                Medidas 76 cm x 60 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/bajo_mesada.jpg" />
-                            <h1> $3.299</h1>
-                            <h2>Bajo Mesada DL608 Delos</h2>
-                            <h3>material: Melamina <br/>Colores:Blanco y Fresno <br/>
-                                Medidas 80 cm x 82 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/mesa.jpg" />
-                            <h1> $8.999</h1>
-                            <h2>Mesa de MDF Escandinava Eames Z216 </h2>
-                            <h3>material: MDF  <br/>Colores:Blanco <br/>
-                                Medidas 74 cm x 120 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/alacena.jpg" />
-                            <h1> $3.639</h1>
-                            <h2>Alacena Melamina Blanco SLB120B </h2>
-                            <h3>material: Melamina  <br/>Colores:Blanco ,caoba, beige<br/>
-                                Medidas 60 cm x 120 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/bajomesada.jpg" />
-                            <h1> $4.499</h1>
-                            <h2>Bajo Mesada DLR614BHA Delos </h2>
-                            <h3>material: Melamina  <br/>Colores:Blanco y Wengue<br/>
-                                Medidas 140 cm x 82 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/mesa_auxiliar.jpg" />
-                            <h1> $1.999</h1>
-                            <h2>Mesa Auxiliar Moderna Bari </h2>
-                            <h3>material: Polipropileno   <br/>Colores:Negro <br/>
-                                Medidas 40 cm x 75 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/centro_planchado.jpg" />
-                            <h1> $3.599</h1>
-                            <h2>Centro planchador Delos </h2>
-                            <h3>material: Aglomerado  <br/>Colores:Negro, Blanco <br/>
-                                Medidas 85 cm x 75 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/rack_tv.jpg" />
-                            <h1> $2.600</h1>
-                            <h2>Rack de TV Paraiso MT4001P</h2>
-                            <h3>material:  Melamina <br/>Colores:Negro, Blanco,caoba <br/>
-                                Medidas 50 cm x 128 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/alacena_f.jpg" />
-                            <h1> $3.499</h1>
-                            <h2>Alacena Funcional Blanca con estanteria</h2>
-                            <h3>material:Melamina Aglomerado  <br/>Colores:Negro, Blanco,caoba <br/>
-                                Medidas 60 cm x 100 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/biblioteca.jpg" />
-                            <h1> $2.200</h1>
-                            <h2>Biblioteca L9P Paraiso Centro Estant</h2>
-                            <h3>material:Melamina  <br/>Colores:Negro, Blanco,caoba <br/>
-                                Medidas 180cm x 40 cm</h3>
-                        </p:outputPanel>
-                        <p:outputPanel style="width:200px ">
-                            <p:graphicImage url="/resources/Imagen/mesa_luz.jpg" />
-                            <h1> $1.199</h1>
-                            <h2>Set de Mesas de Luz MLSBLX2 Centro Estant</h2>
-                            <h3>material:Melamina  <br/>Colores:Negro, Blanco,caoba <br/>
-                                Medidas 70cm x 43 cm</h3>
-                        </p:outputPanel>
-                    </p:panelGrid>
+                    <h:form id="product-form">
+                        <p:dataGrid id="product-grid" var="product" 
+                                    value="#{productFormBean.productList}" 
+                                    columns="4" layout="grid"
+                                    rows="6" paginator="true" 
+                                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                    rowsPerPageTemplate="6,12,16">
+
+                            <p:commandLink action="#{productFormBean.itemClick(product.id)}" style="text-decoration:none" >
+                                <p:panel class="product-grid-item">
+                                    <p:graphicImage url="/resources/Imagen/mueble_cocina.jpg" />
+                                    <h1>#{product.price}</h1>
+                                    <h2>#{product.name}</h2>
+                                    <h3>#{product.description}"</h3>
+                                </p:panel>
+                            </p:commandLink>
+
+                        </p:dataGrid>
+                    </h:form>
                 </p:panelGrid>
+
             </ui:define>
         </ui:composition>
     </h:body>

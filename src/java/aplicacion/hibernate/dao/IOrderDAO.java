@@ -23,6 +23,4 @@ public interface IOrderDAO {
     Order getOrderById(int orderId);
 
     List<Order> getOrderList();
-    
-    
 }

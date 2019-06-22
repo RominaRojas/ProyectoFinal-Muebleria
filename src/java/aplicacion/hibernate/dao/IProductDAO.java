@@ -23,4 +23,6 @@ public interface IProductDAO {
     Product getProductById(int productId);
 
     List<Product> getProductList();
+    
+    List<Product> getProductListByCategoryId(int categoryId);
 }

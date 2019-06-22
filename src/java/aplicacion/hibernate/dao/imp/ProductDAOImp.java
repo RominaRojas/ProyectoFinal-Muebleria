@@ -13,6 +13,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -74,6 +75,17 @@ public class ProductDAOImp implements Serializable, IProductDAO {
         List<Product> productList = criteria.list();
         session.close();
         return productList;
+    }
+
+    @Override
+    public List<Product> getProductListByCategoryId(int categoryId) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Product.class);
+                
+        criteria.add(Restrictions.          
+                sqlRestriction("{alias}.category_id = "+Integer.toString(categoryId))
+        );
+        return criteria.list();
     }
 
 }

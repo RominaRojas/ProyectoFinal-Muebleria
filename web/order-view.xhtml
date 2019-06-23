@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:outputPanel>
+                <p:panelGrid id="pedido" columns="2"/>
+                <p:outputLabel value="Pedido"/>
+                <p:inputText id="Pedido" size="5"/>
+            </p:outputPanel>
+        </h:form> 
+        <h:form>     
+        <h1 style="margin-top:0"></h1>
+        <p:separator />
+        <h1></h1>
+        <p:panel style="height: 50px">
+            <h:panelGrid columns="4" cellpadding="5" >
+                <h:outputText value="En relacion con este pedido:" style=" margin-right: 40px"/>
+                <h:outputText value="Informacion del Pedido" style="margin-right: 40px"/>
+                <h:outputText value="Facturas" style="background-color:greenyellow"/>
+                <h:outputText value="Comprobante de Compra" style="background-color:greenyellow"/>
+             </h:panelGrid>
+        </p:panel>
+        <h2></h2>
+        <p:panel>
+             <h:panelGrid columns="2" cellpadding="5"/>
+             <h:outputLabel id="lblFechaDelPedido" value="FECHA DEL PEDIDO:"/> 
+             <p:inputText id="fechaDeVencimiento" placeholder="dd/mm/aaaa"/>
+        </p:panel>
+        </h:form>
+        <h3></h3>
+        
+        <h3>ESTA ES TU SOLICITUD</h3>
+         <p:dataTable var="car" >
+             <p:column headerText="Producto">
+               <h:outputText value="1098"/>
+             </p:column>
+ 
+             <p:column headerText="Precio" style="width: 200px">
+             </p:column>
+ 
+             <p:column headerText="Cantidad" style="width: 200px">
+             </p:column>
+             
+             <p:column headerText="Total" style="width: 200px">
+             </p:column>
+         </p:dataTable>     
+        <p:outputPanel style="margin-left: 80%">
+            <h:panelGrid columns="2">
+               <p:outputLabel id="lblTotal" value="Total" />
+               <p:inputText  id="total" size="5"/>
+               <p:outputLabel id="lblDescuento" value="Descuento"/>
+               <p:inputText id="descuento" size="5"/>
+               <p:outputLabel id="lblImpuestos" value="Impuesto"/>
+               <p:inputText id="impuesto" size="5"/>
+               <p:outputLabel id="lblSumaTotal" value="Suma Total"/>
+               <p:inputText id="sumaTotal" size="5"/>
+        </h:panelGrid>
+        </p:outputPanel>
+    </h:body>
+</html>
+

@@ -12,6 +12,23 @@ package aplicacion.modelo.dominio.order;
 public class OrderStatus {
     public static int pending = 0;
     public static int canceled = 1;
-    public static int delivered = 2;    
+    public static int delivered = 2;
 
+    public static String getStatusString(int status) {
+        String result = "";
+
+        switch (status) {
+            case 0:
+                result = "Pendiente";
+                break;
+            case 1:
+                result = "Cancelado";
+                break;
+            case 2:
+                result = "Entregado";
+                break;
+        }
+
+        return result;
+    }
 }

@@ -15,7 +15,7 @@
                         <div class="ui-grid page">
                             <div class="ui-grid-row">                    
                                 <div class="ui-g-12 ui-md-6 ui-lg-5 product-imagen" > 
-                                    <p:graphicImage name="Imagen/mueble_cocina.jpg" />
+                                    <p:graphicImage name="#{productViewFormBean.getProductImage(productViewFormBean.product.id)}" />
                                 </div>
                                 <div class="ui-g-12 ui-md-6 ui-lg-7 product-info">
                                     <div class="ui-grid">
@@ -37,12 +37,8 @@
                                             decimalPlaces="0" 
                                             value="#{productViewFormBean.productId}" 
                                             style="display:none"/>
-                                        <p:inputNumber 
-                                            value="#{productViewFormBean.productQty}"
-                                            id="product-qty" 
-                                            decimalPlaces="0" 
-                                            size="3"
-                                            required="true"/>
+                                        
+                                        <p:spinner size="3" required="true" id="product-qty" value="#{productViewFormBean.productQty}"/> 
 
                                         <p:commandButton
                                             id="product-buy"

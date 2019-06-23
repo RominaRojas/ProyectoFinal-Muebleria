@@ -52,7 +52,9 @@
 
                             <p:commandLink action="#{productFormBean.itemClick(product.id)}" style="text-decoration:none" >
                                 <p:panel class="product-grid-item">
-                                    <p:graphicImage url="/resources/Imagen/mueble_cocina.jpg" />
+                                    
+                                    <p:graphicImage url="#{productFormBean.getProductImage(product.id)}" />
+                                    
                                     <h1>#{product.price}</h1>
                                     <h2>#{product.name}</h2>
                                     <h3>#{product.description}"</h3>

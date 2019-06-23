@@ -48,3 +48,20 @@
 .ui-growl-image{
     background-image: url("../Imagen/notifi-yellow.png") !important;
 }
+
+.alignTop {
+    vertical-align: top;
+}
+
+.product-grid-item{
+    text-align: center;
+    cursor:pointer;
+}
+
+.product-grid-item:hover{
+    background: #d2e6f5;
+}
+
+.product-grid-item img{
+    max-width: 100%;
+}

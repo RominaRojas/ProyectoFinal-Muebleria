@@ -22,6 +22,8 @@
                 <p:growl id="mensajes" showDetail="true"/>
                 <h:form>  
                     <p:menubar>
+                        <p:menuitem value="EN MADERA" url="index.xhtml" />
+
                         <f:facet name="options" >
 
                             <p:commandButton id="brn_login" 
@@ -35,22 +37,22 @@
                                              value="Registrar"
                                              ajax="false"
                                              action="#{loginFormBean.gotToSignUp()}">
-                                
+
                             </p:commandButton>
-                            
+
                             <p:commandButton id="btn_orders" 
                                              rendered="#{loginFormBean.isLogged()}"
                                              value="Mis Pedidos"
                                              ajax="false"
                                              action="#{loginFormBean.goToOrder()}">
-                                
+
                             </p:commandButton>
                             <p:commandButton id="btn_logout" 
                                              rendered="#{loginFormBean.isLogged()}"
                                              value="Salir"
                                              ajax="false"
                                              action="#{loginFormBean.logout()}">
-                                
+
                             </p:commandButton>
                         </f:facet>
                     </p:menubar>

@@ -43,5 +43,8 @@ public class ProductBean implements Serializable{
         return iProductDAO.getProductById(productId);
     }
     
+    public void subtractStock(int productId, int quantity) {
+        iProductDAO.subtractStock(productId, quantity);
+    }
     
 }

@@ -8,6 +8,7 @@ package aplicacion.controlador.beans;
 import aplicacion.hibernate.dao.IOrderDAO;
 import aplicacion.hibernate.dao.imp.OrderDAOImp;
 import aplicacion.modelo.dominio.order.Order;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -19,27 +20,38 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class OrderBean {
 
-   private IOrderDAO iOrderDAO;
-   
+    private IOrderDAO iOrderDAO;
+
     public OrderBean() {
         iOrderDAO = new OrderDAOImp();
     }
 
-    public IOrderDAO getiUserDAO() {
+    public void create(Order order) {
+        iOrderDAO.create(order);
+    }
+
+    public int getLastOrderNumber() {
+        return iOrderDAO.getLastOrderNumber();
+    }
+    
+    public List<Order> getOrderList(){
+        return iOrderDAO.getOrderList();
+    }
+
+    public IOrderDAO getiOrderDAO() {
         return iOrderDAO;
     }
 
-    public void setiUserDAO(IOrderDAO iOrderDAO) {
+    public void setiOrderDAO(IOrderDAO iOrderDAO) {
         this.iOrderDAO = iOrderDAO;
     }
-    
-    public void create(Order order){
-        iOrderDAO.create(order);
+
+    public List<Order> getOrderListByUserId(int userId){
+        return iOrderDAO.getOrderListByUserId(userId);
     }
     
-    /**public int getLastOrderNumber(){
-        iOrderDAO.getLastOrderNumber();
-    }**/
+    public Order getOrderById(int orderId){
+        return iOrderDAO.getOrderById(orderId);
+    }
     
-
 }

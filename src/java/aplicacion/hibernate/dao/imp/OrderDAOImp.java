@@ -13,6 +13,8 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -74,6 +76,31 @@ public class OrderDAOImp implements Serializable, IOrderDAO {
         List<Order> orderList = criteria.list();
         session.close();
         return orderList;
+    }
+
+    @Override
+    public int getLastOrderNumber() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Order.class).
+                setProjection(Projections.max("orderNumber"));
+       
+        Integer lastOrderNumber = (Integer) criteria.uniqueResult();
+        
+        session.close();
+        
+        return null != lastOrderNumber ? lastOrderNumber : 10000000;
+    }
+
+    @Override
+    public List<Order> getOrderListByUserId(int userId) {
+    
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Order.class);
+                
+        criteria.add(Restrictions.          
+                sqlRestriction("{alias}.user_id = "+Integer.toString(userId))
+        );
+        return criteria.list();
     }
 
 }

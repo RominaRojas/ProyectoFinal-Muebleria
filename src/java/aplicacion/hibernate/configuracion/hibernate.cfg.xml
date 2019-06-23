@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/muebleria</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">123456789</property>
-        <mapping resource="aplicacion/hibernate/orm/User.hbm.xml"/>
-        <mapping resource="aplicacion/hibernate/orm/Product.hbm.xml"/>
-        <mapping resource="aplicacion/hibernate/orm/Category.hbm.xml"/>
-        <mapping resource="aplicacion/hibernate/orm/Order.hbm.xml"/>
-        <mapping resource="aplicacion/hibernate/orm/OrderItem.hbm.xml"/>
-    </session-factory>
+  <session-factory>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/muebleria</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">123456789</property>
+    <mapping resource="aplicacion/hibernate/orm/User.hbm.xml"/>
+    <mapping resource="aplicacion/hibernate/orm/Product.hbm.xml"/>
+    <mapping resource="aplicacion/hibernate/orm/Category.hbm.xml"/>
+    <mapping resource="aplicacion/hibernate/orm/Order.hbm.xml"/>
+    <mapping resource="aplicacion/hibernate/orm/OrderItem.hbm.xml"/>
+  </session-factory>
 </hibernate-configuration>

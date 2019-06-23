@@ -57,6 +57,10 @@ public class ProductFormBean implements Serializable {
     public void filterByCategoryId(int categoryId){
         productList = productBean.getProductListByCategoryId(categoryId);        
     }
+    
+    public String getProductImage(int productId){
+        return "/resources/Imagen/Catalogo/"+Integer.toString(productId)+".jpg";
+    }
 
     public String itemClick(int productId){
         return "product-view?id="+Integer.toString(productId)+"&faces-redirect=true";

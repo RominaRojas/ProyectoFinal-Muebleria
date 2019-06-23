@@ -23,11 +23,11 @@
                                 <h:form id="compra">
                                     <p:panelGrid columns="2"> 
                                         <h:outputLabel id="nombreProducto" value="Producto:"/>
-                                        <h3>#{orderFormBean.product.name}</h3>
+                                        <h3>#{checkoutFormBean.product.name}</h3>
                                         <h:outputLabel id="productoQty" value="Cantidad: " />
-                                        <p:spinner id="basic" value="#{orderFormBean.productQty}"/> 
+                                        <h:outputLabel id="productoQtyValue" value="#{checkoutFormBean.productQty}" />
                                         <h:outputLabel id="precioFinal" value="PRECIO FINAL: " />
-                                        <h:outputLabel id="precioFinalValue" value="$ #{orderFormBean.product.price}" />
+                                        <h:outputLabel id="precioFinalValue" value="$ #{checkoutFormBean.product.price * checkoutFormBean.productQty}" />
                                     </p:panelGrid>
                                 </h:form>
                             </div>
@@ -44,9 +44,9 @@
                                     <p:inputNumber
                                             id="product-id-tmp"
                                             decimalPlaces="0" 
-                                            value="#{orderFormBean.productId}" style="display:none"/>
+                                            value="#{checkoutFormBean.productId}" style="display:none"/>
                                     <p:inputNumber 
-                                            value="#{orderFormBean.productQty}"
+                                            value="#{checkoutFormBean.productQty}"
                                             id="product-qty" 
                                             decimalPlaces="0" style="display:none"/>
                                     
@@ -57,24 +57,25 @@
                                         <f:selectItem itemLabel="Masterd Card" itemValue="Masterd Card" />
                                         <f:selectItem itemLabel="ICBC" itemValue="ICBC" />
                                     </p:selectOneMenu>
-                                    <p:inputNumber id="numeroTarjeta" required="true" placeholder="Numero de tarjeta de credito" />
+                                    <p:inputNumber id="numeroTarjeta" decimalPlaces="0" required="true" placeholder="Numero de tarjeta de credito" />
                                     <p:panelGrid columns="2">
-                                        <p:inputNumber id="mes" maxValue="12"  required="true" style="width: 150px" placeholder="M" />
-                                        <p:inputNumber id="año" maxValue="2030" required="true" style="width: 150px" placeholder="AAAA" />   
+                                        <p:inputNumber id="mes" decimalPlaces="0" maxValue="12"  required="true" style="width: 150px" placeholder="M" />
+                                        <p:inputNumber id="año" decimalPlaces="0" maxValue="2030" required="true" style="width: 150px" placeholder="AAAA" />   
                                     </p:panelGrid>
-                                    <p:inputNumber id="cod_seguridad" maxValue="999" required="true" style="width: 300px" placeholder="Codigo de Seguridad" /> 
+                                    <p:inputNumber id="cod_seguridad" decimalPlaces="0" maxValue="999" required="true" style="width: 300px" placeholder="Codigo de Seguridad" /> 
                                                                         
                                     <p:commandButton
                                             id="buy-button"
                                             value="Comprar"
                                             process="@parent"
                                             update="@form"
-                                            action="#{orderFormBean.buyProduct()}">
+                                            action="#{checkoutFormBean.buyProduct()}">
                                         </p:commandButton>
                                     
                                 </h:form>
                             </div>
                         </center>
+                        <br></br><br></br><br></br><br></br><br></br>
                     </p:outputPanel>
                 </p:panelGrid>
             </ui:define>

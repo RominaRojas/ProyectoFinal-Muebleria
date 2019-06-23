@@ -77,6 +77,10 @@ public class ProductViewFormBean implements Serializable {
         return product;
     }
 
+    public String getProductImage(int productId){
+        return "/resources/Imagen/Catalogo/"+Integer.toString(productId)+".jpg";
+    }
+    
     public void setProduct(Product product) {
         this.product = product;
     }

@@ -16,7 +16,11 @@
         <property name="orderNumber" type="int">
             <column name="order_number"  not-null="true" />
         </property> 
-            
+    
+        <property name="totalPrice" type="double">
+            <column name="total_price" not-null="true"/>
+        </property>
+        
         <property name="createdAt" type="calendar">
             <column name="created_at" not-null="true" />
         </property> 

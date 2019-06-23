@@ -23,4 +23,8 @@ public interface IOrderDAO {
     Order getOrderById(int orderId);
 
     List<Order> getOrderList();
+    
+    int getLastOrderNumber();
+    
+    List<Order> getOrderListByUserId(int userId);
 }

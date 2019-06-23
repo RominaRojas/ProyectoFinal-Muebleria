@@ -21,11 +21,12 @@ public class Order implements Serializable {
     private int orderNumber;
     private User user;
     private Calendar createdAt;
+    private double totalPrice;
     private int state;
     private List<OrderItem> itemList = new ArrayList<>();
 
     public Order() {
-        
+
     }
 
     public Order(int id, int orderNumber, User user, Calendar date, int state, List<OrderItem> itemList) {
@@ -35,6 +36,17 @@ public class Order implements Serializable {
         this.createdAt = date;
         this.state = state;
         this.itemList = itemList;
+    }
+
+    public String getStateString() {
+
+        return OrderStatus.getStatusString(this.state);
+    }
+    
+    public String getCreatedAtFormated(){
+        /*SimpleDateFormat dateformatter = new SimpleDateFormat ("dd-MM-yyyy ");
+        return dateformatter.format(createdAt.getTime());*/
+        return createdAt.getTime().toString();
     }
 
     public int getId() {
@@ -94,4 +106,14 @@ public class Order implements Serializable {
     public void addItem(OrderItem item) {
         this.itemList.add(item);
     }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+    
+    
 }

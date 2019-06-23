@@ -13,6 +13,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -74,6 +75,17 @@ public class OrderItemDAOImp implements Serializable, IOrderItemDAO {
         List<OrderItem> orderItemList = criteria.list();
         session.close();
         return orderItemList;
+    }
+
+    @Override
+    public List<OrderItem> getOrderItemByOrderId(int orderId) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(OrderItem.class);
+                
+        criteria.add(Restrictions.          
+                sqlRestriction("{alias}.order_id = "+Integer.toString(orderId))
+        );
+        return criteria.list();
     }
 
 }

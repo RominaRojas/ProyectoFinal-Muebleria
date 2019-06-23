@@ -25,4 +25,6 @@ public interface IProductDAO {
     List<Product> getProductList();
     
     List<Product> getProductListByCategoryId(int categoryId);
+    
+    void subtractStock(int productId, int quantity);
 }

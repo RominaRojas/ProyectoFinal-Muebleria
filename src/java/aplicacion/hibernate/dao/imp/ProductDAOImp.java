@@ -88,4 +88,12 @@ public class ProductDAOImp implements Serializable, IProductDAO {
         return criteria.list();
     }
 
+    @Override
+    public void subtractStock(int productId, int quantity) {
+        Product product = getProductById(productId);
+        product.setStock(product.getStock() - quantity);
+        
+        update(product);
+    }
+
 }

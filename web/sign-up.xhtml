@@ -38,15 +38,15 @@
                             <p:outputLabel id="lblFechaDeNacimiento" 
                                            for="txtFechaDeNacimiento" 
                                            value="Fecha De Nacimiento:" />
-                            
                             <p:calendar id="txtFechaDeNacimiento"
                                         yearRange="c-80:c-18"
+                                        readonly="true"
                                         navigator="true"
                                         required="true"
                                         requiredMessage="Debe ingresar su fecha de nacimiento" 
                                         showOn="button" 
                                         value="#{signUpFormBean.dateOfBirth}"/>
-                                
+
                             <p:outputLabel id="lblEmail" value="Email:"/>
                             <p:inputText id="txtEmail"  
                                          required="true"

@@ -37,11 +37,6 @@ public class CategoryFormBean implements Serializable {
 
     }
     
-    /**
-     * Crea el menu de categorias.
-     * Fuente
-     * https://www.primefaces.org/showcase/ui/menu/menu.xhtml
-     */
     @PostConstruct
     public void init() {
         categoryMenuModel = new DefaultMenuModel();

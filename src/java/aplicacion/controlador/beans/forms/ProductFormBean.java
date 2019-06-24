@@ -16,7 +16,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 /**
- * 
+ *
  * @author LILI
  */
 @ManagedBean
@@ -32,9 +32,6 @@ public class ProductFormBean implements Serializable {
      */
     public ProductFormBean() {
     }
-    /**
-     * Se inicializa el productList(Grilla) con todos los productos.
-     */
     
     @PostConstruct
     public void init() {
@@ -57,19 +54,10 @@ public class ProductFormBean implements Serializable {
         this.productBean = productBean;
     }
    
-    /**
-     *Le asigna al productList una lista de productos filtrada por categorias.
-     * @param categoryId 
-     */
     public void filterByCategoryId(int categoryId){
         productList = productBean.getProductListByCategoryId(categoryId);        
     }
     
-    /**
-     * Segun id se retorna la direccion de la imagen.
-     * @param productId
-     * @return 
-     */
     public String getProductImage(int productId){
         return "/resources/Imagen/Catalogo/"+Integer.toString(productId)+".jpg";
     }

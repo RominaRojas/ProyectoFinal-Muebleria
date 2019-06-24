@@ -38,16 +38,16 @@ public class ProductViewFormBean implements Serializable {
     public ProductViewFormBean() {
     }
 
-  
-    /**
-     * Si el usuario esta logueado redirige al checkout de lo 
-     * contrario al login.
-     * @return 
-     */
+    private void redirectToHome() {
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+        } catch (IOException ex) {
+        }
+    }
+
     public String buyProduct() {
-        //redirecciona a login.
         String redirection = "login?faces-redirect=true";
-        
+
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
         User user = (User) externalContext.getSessionMap().get("user");
@@ -62,12 +62,6 @@ public class ProductViewFormBean implements Serializable {
         return redirection;
     }
 
-    /**
-     * Nos devuelve un producto.
-     * si el producto es igual a nulo, cargará el producto segun id en url.
-     * 
-     * @return 
-     */
     public Product getProduct() {
         if (product == null) {
             Map<String, String> params = FacesContext.getCurrentInstance().
@@ -83,13 +77,8 @@ public class ProductViewFormBean implements Serializable {
         return product;
     }
 
-    /**
-     * Segun id se retorna la direccion de la imagen.
-     * @param productId
-     * @return 
-     */
     public String getProductImage(int productId){
-        return "/Imagen/Catalogo/"+Integer.toString(productId)+".jpg";
+        return "/resources/Imagen/Catalogo/"+Integer.toString(productId)+".jpg";
     }
     
     public void setProduct(Product product) {

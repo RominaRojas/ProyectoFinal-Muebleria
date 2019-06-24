@@ -62,6 +62,7 @@
     background: #d2e6f5;
 }
 
+.product-imagen img,
 .product-grid-item img{
     max-width: 100%;
 }

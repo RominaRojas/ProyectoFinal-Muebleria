@@ -37,6 +37,10 @@ public class SignUpFormBean implements Serializable {
     public SignUpFormBean() {
     }
     
+    /**
+     * Corrobora que no existan dos usuarios con un mismo email.
+     * @return 
+     */
     public String registerNewUser() {
         String result = "";
         

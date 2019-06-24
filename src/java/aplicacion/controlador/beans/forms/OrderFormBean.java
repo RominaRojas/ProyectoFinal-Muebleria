@@ -48,6 +48,9 @@ public class OrderFormBean implements Serializable {
     public OrderFormBean() {
     }
 
+    /**
+     *obtiene un listado de pedidos a partir de un id de usuario.
+     */
     @PostConstruct
     public void init() {
 
@@ -68,6 +71,11 @@ public class OrderFormBean implements Serializable {
         }
     }
 
+    /**
+     * Implementacion de jasper report para la impresion de la orden
+     * @throws JRException
+     * @throws IOException 
+     */
     public void downloadOrderList() throws JRException, IOException {
 
         Map<String, Object> parametros = new HashMap<String, Object>();
@@ -89,6 +97,12 @@ public class OrderFormBean implements Serializable {
 
     }
 
+    /**
+     * retorna url para redireccion a la vista del pedido
+     * a order-view
+     * @param orderId
+     * @return 
+     */
     public String getOrderLink(String orderId) {
         return "order-view.xhtml?faces-redirect=true&id=" + orderId;
     }

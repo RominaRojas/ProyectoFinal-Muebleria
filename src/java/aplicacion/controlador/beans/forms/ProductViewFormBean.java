@@ -45,6 +45,11 @@ public class ProductViewFormBean implements Serializable {
         }
     }
 
+    /**
+     * Si el usuario esta logueado redirige al checkout de lo 
+     * contrario al login.
+     * @return 
+     */
     public String buyProduct() {
         String redirection = "login?faces-redirect=true";
 
@@ -62,6 +67,11 @@ public class ProductViewFormBean implements Serializable {
         return redirection;
     }
 
+    /**
+     * Nos devuelve un producto.
+     * si el producto es igual a nulo, cargará el producto segun id en url.
+     * @return 
+     */
     public Product getProduct() {
         if (product == null) {
             Map<String, String> params = FacesContext.getCurrentInstance().
@@ -77,6 +87,11 @@ public class ProductViewFormBean implements Serializable {
         return product;
     }
 
+    /**
+     * Segun id se retorna la direccion de la imagen.
+     * @param productId
+     * @return 
+     */
     public String getProductImage(int productId){
         return "/Imagen/Catalogo/"+Integer.toString(productId)+".jpg";
     }

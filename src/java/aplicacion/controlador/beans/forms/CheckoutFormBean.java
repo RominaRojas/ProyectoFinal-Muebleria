@@ -43,6 +43,11 @@ public class CheckoutFormBean implements Serializable {
     public CheckoutFormBean() {
     }
 
+    /**
+     
+     * Genera el pedido.
+     * @return 
+     */
     public String buyProduct() {
         String result = "";
                 
@@ -64,11 +69,7 @@ public class CheckoutFormBean implements Serializable {
                     .put("lastOrder", order);
             
             productBean.subtractStock(getProduct().getId(), getProductQty());
-            
-            /**
-             * TODO: Restar productQty al stock
-             */
-            
+           
             result = "success?faces-redirect=true";
         }else{
             result = "login?faces-redirect=true";
@@ -77,21 +78,30 @@ public class CheckoutFormBean implements Serializable {
         return result;
     }
     
+    /**
+     * Obtiene el numero de pedido de la ultima orden realizada.
+     * @return 
+     */
     public String getLastOrderNumber(){
         Order order = (Order) FacesContext.getCurrentInstance()
                     .getExternalContext().getSessionMap().get("lastOrder");
         return Integer.toString(order.getOrderNumber());
     }
-    
+    /**
+     * Retorna el link de la ultima orden realizada.
+     * @return 
+     */
     public String getLastOrderLink(){
         Order order = (Order) FacesContext.getCurrentInstance()
                     .getExternalContext().getSessionMap().get("lastOrder");
-        
-        System.out.println(order.getId());
-        
+      
         return "order-view.xhtml?faces-redirect=true&id=" + Integer.toString(order.getId());
     }
-        
+    /**
+     * Retorna un producto
+     * Si no hay un producto inicializado, carga el producto segun id en url.
+     * @return 
+     */    
     public Product getProduct() {
         if (product == null) {
             Map<String, String> params = FacesContext.getCurrentInstance().
@@ -105,7 +115,12 @@ public class CheckoutFormBean implements Serializable {
         }
         return product;
     }
-
+    /**
+     * Retorna la cantidad de productos.
+     * Si la cantidad de producto es igual a 0, se obtendra la cantidad de la url.
+     * @return 
+     */
+    
     public int getProductQty() {
         if (productQty == 0) {
             Map<String, String> params = FacesContext.getCurrentInstance().

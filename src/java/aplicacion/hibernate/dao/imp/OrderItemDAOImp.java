@@ -77,6 +77,11 @@ public class OrderItemDAOImp implements Serializable, IOrderItemDAO {
         return orderItemList;
     }
 
+    /**
+     * Obtiene un listado de orderItems segun orderId
+     * @param orderId
+     * @return 
+     */
     @Override
     public List<OrderItem> getOrderItemByOrderId(int orderId) {
         Session session = HibernateUtil.getSessionFactory().openSession();

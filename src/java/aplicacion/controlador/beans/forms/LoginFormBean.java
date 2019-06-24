@@ -70,6 +70,10 @@ public class LoginFormBean implements Serializable {
         this.userBean = userBean;
     }
 
+    /**
+     * Se verifica el logueo.
+     * @return
+     */
     public String verifyCredentials() {
         String resultado = "";
 

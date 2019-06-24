@@ -9,6 +9,7 @@ import aplicacion.controlador.beans.UserBean;
 import aplicacion.modelo.dominio.user.*;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -30,20 +31,23 @@ public class SignUpFormBean implements Serializable {
     private String surname;
     private String email;
     private int dni;
-    private Calendar dateOfBirth;
+    private Date dateOfBirth;
     private String password;
 
     public SignUpFormBean() {
     }
-
+    
     public String registerNewUser() {
         String result = "";
-
+        
+        Calendar dateOfBirth = Calendar.getInstance();
+        dateOfBirth.setTime(this.dateOfBirth);
+        
         User newUser = new User();
         newUser.setName(name);
         newUser.setSurname(surname);
         newUser.setDni(dni);
-        newUser.setDateOfBirth(Calendar.getInstance());
+        newUser.setDateOfBirth(dateOfBirth);
         newUser.setEmail(email);
         newUser.setPassword(password);
         newUser.setRole(UserRole.user);
@@ -99,15 +103,7 @@ public class SignUpFormBean implements Serializable {
     public void setDni(int dni) {
         this.dni = dni;
     }
-
-    public Calendar getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Calendar dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
+    
     public String getPassword() {
         return password;
     }
@@ -116,4 +112,13 @@ public class SignUpFormBean implements Serializable {
         this.password = password;
     }
 
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    
 }

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -26,19 +27,14 @@
                 <h:form>     
                     <h1 style="margin-top:0"></h1>
                     <p:separator />
-                    <h1></h1>
-                    <!--p:panel style="height: 50px">
-                        <h:panelGrid columns="4" cellpadding="5" >
-                            <h:outputText value="En relacion con este pedido:" style=" margin-right: 40px"/>
-                            <h:outputText value="Informacion del Pedido" style="margin-right: 40px"/>
-                            <h:outputText value="Comprobante de Compra" style="background-color:greenyellow"/>
-                        </h:panelGrid>
-                    </p:panel-->
-                    <h2></h2>
                     <p:panel>
-                        <h:panelGrid columns="2" cellpadding="5"/>
-                        <h:outputLabel id="lblFechaDelPedido" value="FECHA DEL PEDIDO: "/> 
-                        <h:outputText id="fechaDeVencimiento" value="#{orderViewFormBean.order.createdAtFormated}"/>
+                        <h:outputLabel id="fechaDelPedido" value="FECHA DEL PEDIDO: "/> 
+                        <h:outputText id="fechaDelPedidoValue" value="#{orderViewFormBean.order.getCreatedAtDate()}">
+                            <f:convertDateTime dateStyle="long" />
+                        </h:outputText>
+                        <h2/>
+                        <h:outputLabel id="estadoDelPedido" value="ESTADO DEL PEDIDO: "/> 
+                        <h:outputText id="estadoDelPedidoValue" value="#{orderViewFormBean.order.stateString}"/>
                     </p:panel>
                 </h:form>
                 <h3></h3>
@@ -50,7 +46,13 @@
                     </p:column>
 
                     <p:column headerText="Precio" style="width: 200px">
-                        <h:outputText value="#{orderItem.price}"/>
+                        <h:outputText value="#{orderItem.price}">
+                            <f:convertNumber currencySymbol="$ " 
+                                             type="currency" 
+                                             maxIntegerDigits="5" 
+                                             maxFractionDigits="2"
+                                             locale="es_AR"/>
+                        </h:outputText>
                     </p:column>
 
                     <p:column headerText="Cantidad" style="width: 200px">
@@ -62,10 +64,16 @@
                 <p:outputPanel style="margin-left: 80%">
                     <h:panelGrid columns="2">
                         <p:outputLabel id="lblTotal" value="Total" />
-                        <h:outputText   id="total" value="#{orderViewFormBean.order.totalPrice}" />
+                        <h:outputText   id="total" value="#{orderViewFormBean.order.totalPrice}">
+                            <f:convertNumber currencySymbol="$ " 
+                                             type="currency" 
+                                             maxIntegerDigits="5" 
+                                             maxFractionDigits="2"
+                                             locale="es_AR"/>
+                        </h:outputText>
                     </h:panelGrid>
                 </p:outputPanel>
-                
+
                 <br></br><br></br><br></br><br></br><br></br>
             </ui:define>
         </ui:composition>

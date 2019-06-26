@@ -8,9 +8,9 @@ package aplicacion.controlador.beans.forms;
 import aplicacion.controlador.beans.ProductBean;
 import aplicacion.modelo.dominio.product.Product;
 import aplicacion.modelo.dominio.user.User;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -29,7 +29,6 @@ public class ProductViewFormBean implements Serializable {
     private ProductBean productBean;
     private Product product = null;
     private int productId;
-
     private int productQty = 1;
 
     /**
@@ -38,17 +37,11 @@ public class ProductViewFormBean implements Serializable {
     public ProductViewFormBean() {
     }
 
-    private void redirectToHome() {
-        try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
-        } catch (IOException ex) {
-        }
-    }
-
     /**
-     * Si el usuario esta logueado redirige al checkout de lo 
-     * contrario al login.
-     * @return 
+     * Si el usuario esta logueado redirige al checkout de lo contrario al
+     * login.
+     *
+     * @return
      */
     public String buyProduct() {
         String redirection = "login?faces-redirect=true";
@@ -63,14 +56,23 @@ public class ProductViewFormBean implements Serializable {
                     + Integer.toString(productQty)
                     + "&faces-redirect=true";
         }
-        
+
+        if (productBean.getProductById(productId).getStock() < productQty) {
+            FacesContext fc = FacesContext.getCurrentInstance();
+            fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Error al comprar",
+                    "No hay suficiente stock disponible."));
+            redirection = "";
+        }
+
         return redirection;
     }
 
     /**
-     * Nos devuelve un producto.
-     * si el producto es igual a nulo, cargará el producto segun id en url.
-     * @return 
+     * Nos devuelve un producto. si el producto es igual a nulo, cargará el
+     * producto segun id en url.
+     *
+     * @return
      */
     public Product getProduct() {
         if (product == null) {
@@ -89,13 +91,14 @@ public class ProductViewFormBean implements Serializable {
 
     /**
      * Segun id se retorna la direccion de la imagen.
+     *
      * @param productId
-     * @return 
+     * @return
      */
-    public String getProductImage(int productId){
-        return "/Imagen/Catalogo/"+Integer.toString(productId)+".jpg";
+    public String getProductImage(int productId) {
+        return "/Imagen/Catalogo/" + Integer.toString(productId) + ".jpg";
     }
-    
+
     public void setProduct(Product product) {
         this.product = product;
     }

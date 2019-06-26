@@ -7,6 +7,7 @@ package aplicacion.controlador.beans.forms;
 
 import aplicacion.controlador.beans.UserBean;
 import aplicacion.modelo.dominio.user.User;
+import aplicacion.modelo.dominio.user.UserRole;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -97,6 +98,10 @@ public class LoginFormBean implements Serializable {
         return "login?faces-redirect=true";
     }
 
+    public String goToAdminPanel() {
+        return "admin?faces-redirect=true";
+    }
+    
     public String goToOrder() {
         return "order?faces-redirect=true";
     }
@@ -106,6 +111,11 @@ public class LoginFormBean implements Serializable {
         return "index?faces-redirect=true";
     }
 
+    public boolean isAdminUser(){
+        User user = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+        return user != null && user.getRole() == UserRole.administrator;
+    }
+    
     /**
      * Si hay un usuario en sesión retornará verdadero.
      *

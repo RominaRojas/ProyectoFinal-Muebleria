@@ -40,6 +40,14 @@
 
                             </p:commandButton>
 
+                            <p:commandButton id="btn_admin_panel" 
+                                             rendered="#{loginFormBean.isAdminUser()}"
+                                             value="Administracion"
+                                             ajax="false"
+                                             action="#{loginFormBean.goToAdminPanel()}">
+
+                            </p:commandButton>
+                            
                             <p:commandButton id="btn_orders" 
                                              rendered="#{loginFormBean.isLogged()}"
                                              value="Mis Pedidos"

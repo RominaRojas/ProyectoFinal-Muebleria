@@ -66,3 +66,7 @@
 .product-grid-item img{
     max-width: 100%;
 }
+
+.product-button  div.ui-state-disabled{
+    opacity:1.00 !important;filter:Alpha(Opacity=100);background-image:none;
+}

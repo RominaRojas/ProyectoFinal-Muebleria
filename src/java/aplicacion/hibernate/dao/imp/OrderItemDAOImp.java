@@ -90,7 +90,12 @@ public class OrderItemDAOImp implements Serializable, IOrderItemDAO {
         criteria.add(Restrictions.          
                 sqlRestriction("{alias}.order_id = "+Integer.toString(orderId))
         );
-        return criteria.list();
+        
+        List<OrderItem> orderItemList = criteria.list();
+        
+        session.close();
+        
+        return orderItemList;
     }
 
 }

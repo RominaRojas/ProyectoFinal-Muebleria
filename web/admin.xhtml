@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+
+        <ui:composition template="./resources/Template/FaceletTemplate.xhtml">
+            <ui:define name="content">
+
+
+                <p:panelGrid columns="2" columnClasses="alignTop,alignTop">
+                    <h:form>
+                        <p:menu widgetVar="admin-menu" model="">
+                            <p:submenu label="Menu Admin">
+                                <p:menuitem value="Pedidos" action="}" />
+                            </p:submenu>
+                        </p:menu>
+                    </h:form>
+
+                    <h:form id="orders">
+                        <p:growl id="msgs" showDetail="true"/>
+                        <h3 style="margin-top:0">Pedidos</h3>
+                        <p:dataTable var="order" editable="true" value="#{adminOrderFormBean.orderList}" >
+
+                            <p:ajax event="rowEdit" listener="#{adminOrderFormBean.onRowEdit}" update=":orders:msgs" />
+                            <p:ajax event="rowEditCancel" listener="#{adminOrderFormBean.onRowCancel}" update=":orders:msgs" />
+
+                            <p:column headerText="Cliente">
+                                <h:outputText value="#{order.user.name}"/>
+                            </p:column>
+
+                            <p:column headerText="N° de Pedido">
+                                <h:outputText value="#{order.orderNumber}"/>
+                            </p:column>
+
+                            <p:column headerText="Estado">
+
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{order.stateString}" /></f:facet>
+                                    <f:facet name="input">
+                                        <h:selectOneMenu value="#{order.state}" style="width:100%">
+                                            <f:selectItems value="#{adminOrderFormBean.getOrderStatusList()}" var="status" itemValue="#{status.id}" itemLabel="#{status.name}" />
+                                        </h:selectOneMenu>
+                                    </f:facet>
+                                </p:cellEditor>
+
+                            </p:column>
+
+                            <p:column headerText="Total del Pedido">
+                                <h:outputText value="#{order.totalPrice}">
+                                    <f:convertNumber currencySymbol="$ " 
+                                                     type="currency" 
+                                                     maxIntegerDigits="5" 
+                                                     maxFractionDigits="2"
+                                                     locale="es_AR"/>
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Fecha">
+                                <h:outputText value="#{order.getCreatedAtFormated()}"/>
+                            </p:column>
+
+                            <p:column headerText="">
+                                <h:commandLink value="Ver Pedido" action="#{adminOrderFormBean.getOrderLink(order.id)}"/>
+                            </p:column>
+
+                            <p:column style="width:35px">
+                                <p:rowEditor />
+                            </p:column>
+
+                        </p:dataTable>
+                        <p:separator/>
+                        <center>
+                            <br></br>
+                            <p:commandButton ajax="false" action="#{adminOrderFormBean.downloadOrderList()}" id="imprimir" value="IMPRIMIR"/>
+                        </center>
+
+                        <br></br><br></br><br></br>
+                    </h:form>
+                </p:panelGrid>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
+

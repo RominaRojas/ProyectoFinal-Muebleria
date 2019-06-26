@@ -29,6 +29,10 @@ public class OrderBean {
     public void create(Order order) {
         iOrderDAO.create(order);
     }
+    
+    public void update(Order order) {
+        iOrderDAO.update(order);
+    }
 
     public int getLastOrderNumber() {
         return iOrderDAO.getLastOrderNumber();
@@ -52,6 +56,10 @@ public class OrderBean {
     
     public Order getOrderById(int orderId){
         return iOrderDAO.getOrderById(orderId);
+    }
+    
+    public List<Order> getOrderListWithUser(){
+        return iOrderDAO.getOrderListWithUser();
     }
     
 }

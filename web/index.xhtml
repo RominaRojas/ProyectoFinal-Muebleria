@@ -30,10 +30,14 @@
                     function refreshCategorySelection(item) {
                         PF('category-menu').menuitemLinks.each(function (nIndex) {
                             $(this).removeClass('ui-state-active');
-                            if (item == nIndex) {
+                            if (item.toString() == nIndex) {
                                 $(this).addClass('ui-state-active');
                             }
                         });
+                    }
+                    function redirectToProductView(productId){
+                        console.log(productId);
+                        window.location = "product-view.xhtml?id=" + productId;
                     }
                 </script>
 
@@ -47,13 +51,12 @@
                         <p:dataGrid id="product-grid" var="product" 
                                     value="#{productFormBean.productList}" 
                                     columns="4" layout="grid"
-                                    rows="6" paginator="true" 
+                                    rows="8" paginator="true" 
                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                    rowsPerPageTemplate="6,12,16">
+                                    rowsPerPageTemplate="8,16,32">
 
-                            <p:commandLink action="#{productFormBean.itemClick(product.id)}" style="text-decoration:none" >
-                                <p:panel class="product-grid-item">
-
+                            <p:panel class="product-grid-item">
+                                <p:commandLink onsuccess="redirectToProductView(#{product.id})" style="text-decoration:none" >
                                     <p:graphicImage url="#{productFormBean.getProductImage(product.id)}" />
 
                                     <h1>
@@ -67,8 +70,8 @@
                                     </h1>
                                     <h2>#{product.name}</h2>
                                     <h3>#{product.description}"</h3>
-                                </p:panel>
-                            </p:commandLink>
+                                </p:commandLink>
+                            </p:panel>
 
                         </p:dataGrid>
                     </h:form>

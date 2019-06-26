@@ -13,70 +13,87 @@
         <ui:composition template="./resources/Template/FaceletTemplate.xhtml">
             <ui:define name="content">
                 <p:graphicImage url="/resources/Imagen/banner-m.jpg" width="100%"/>
+                <p:panelGrid layout="grid" columns="2">
+                        <p:column>
+                            <br></br><br></br>
+                            <center>
+                                <div class="ui-fluid">
+                                    <p:graphicImage url="/resources/Imagen/compra.jpg"/>
+                                    <h3>Resumen de Compra</h3>
+                                    <h:form id="compra">
+                                        <p:panelGrid columns="2" style="width:350px"> 
+                                            <h:outputLabel id="nombreProducto" value="Producto:"/>
+                                            <h3>#{checkoutFormBean.product.name}</h3>
+                                            <h:outputLabel id="productoQty" value="Cantidad: " />
+                                            <h:outputLabel id="productoQtyValue" value="#{checkoutFormBean.productQty}" />
+                                            <h:outputLabel id="precioFinal" value="PRECIO FINAL: " />                                       
+                                            <h:outputLabel id="precioFinalValue" value="#{checkoutFormBean.product.price * checkoutFormBean.productQty}">
+                                                <f:convertNumber currencySymbol="$ " 
+                                                                 type="currency" 
+                                                                 maxIntegerDigits="5" 
+                                                                 maxFractionDigits="2"
+                                                                 locale="es_AR"/>
+                                            </h:outputLabel>
 
-                <p:panelGrid columns="2" style="width:100%">
-                    <p:outputPanel style="width:50%" >
-                        <center>
-                            <div class="ui-fluid">
-                                <p:graphicImage url="/resources/Imagen/compra.jpg"/>
-                                <h3>Resumen de Compra</h3>
-                                <h:form id="compra">
-                                    <p:panelGrid columns="2"> 
-                                        <h:outputLabel id="nombreProducto" value="Producto:"/>
-                                        <h3>#{checkoutFormBean.product.name}</h3>
-                                        <h:outputLabel id="productoQty" value="Cantidad: " />
-                                        <h:outputLabel id="productoQtyValue" value="#{checkoutFormBean.productQty}" />
-                                        <h:outputLabel id="precioFinal" value="PRECIO FINAL: " />
-                                        <h:outputLabel id="precioFinalValue" value="$ #{checkoutFormBean.product.price * checkoutFormBean.productQty}" />
-                                    </p:panelGrid>
-                                </h:form>
-                            </div>
-                        </center>
-                    </p:outputPanel>
+                                        </p:panelGrid>
+                                    </h:form>
+                                </div>
+                            </center>
+                        </p:column>
 
-                    <p:outputPanel style="width:50%">
-                        <center>
-                            <div class="ui-fluid">
-                                <p:graphicImage url="/resources/Imagen/tarjeta.jpg"/>
-                                <h3>Datos de Pago</h3>
-                                <h:form id="registroTarjeta">
-                                    
-                                    <p:inputNumber
+                        <p:column>
+                            <br></br><br></br>
+                            <center>
+                                <div class="ui-fluid">
+                                    <p:graphicImage url="/resources/Imagen/tarjeta.jpg"/>
+                                    <h3>Datos de Pago</h3>
+                                    <h:form id="registroTarjeta" style="max-width: 350px;">
+
+                                        <p:inputNumber
                                             id="product-id-tmp"
                                             decimalPlaces="0" 
                                             value="#{checkoutFormBean.productId}" style="display:none"/>
-                                    <p:inputNumber 
+                                        <p:inputNumber 
                                             value="#{checkoutFormBean.productQty}"
                                             id="product-qty" 
                                             decimalPlaces="0" style="display:none"/>
-                                    
-                                    <p:selectOneMenu id="tarjeta" value="tajeta de credito" required="true">
-                                        <f:selectItem itemLabel="TARJETA DE CREDITO" itemValue="" />
-                                        <f:selectItem itemLabel="Visa" itemValue="Visa" />
-                                        <f:selectItem itemLabel="Naranja" itemValue="Naranja" />
-                                        <f:selectItem itemLabel="Masterd Card" itemValue="Masterd Card" />
-                                        <f:selectItem itemLabel="ICBC" itemValue="ICBC" />
-                                    </p:selectOneMenu>
-                                    <p:inputNumber id="numeroTarjeta" decimalPlaces="0" required="true" placeholder="Numero de tarjeta de credito" />
-                                    <p:panelGrid columns="2">
-                                        <p:inputNumber id="mes" decimalPlaces="0" maxValue="12"  required="true" style="width: 150px" placeholder="M" />
-                                        <p:inputNumber id="año" decimalPlaces="0" maxValue="2030" required="true" style="width: 150px" placeholder="AAAA" />   
-                                    </p:panelGrid>
-                                    <p:inputNumber id="cod_seguridad" decimalPlaces="0" maxValue="999" required="true" style="width: 300px" placeholder="Codigo de Seguridad" /> 
-                                                                        
-                                    <p:commandButton
+
+                                        <p:selectOneMenu id="tarjeta" value="tajeta de credito" required="true">
+                                            <f:selectItem itemLabel="TARJETA DE CREDITO" itemValue="" />
+                                            <f:selectItem itemLabel="Visa" itemValue="Visa" />
+                                            <f:selectItem itemLabel="Naranja" itemValue="Naranja" />
+                                            <f:selectItem itemLabel="Masterd Card" itemValue="Masterd Card" />
+                                            <f:selectItem itemLabel="ICBC" itemValue="ICBC" />
+                                        </p:selectOneMenu>
+
+                                        <p:inputMask id="numeroTarjeta" required="true" 
+                                                     placeholder="Numero de tarjeta de credito"
+                                                     value="" mask="9999-9999-9999-9999" 
+                                                     style="text-align: center;"/>
+
+
+                                        <p:panelGrid columns="2" layout="grid">
+                                            <p:inputMask mask="99" id="mes" required="true" style="width: 150px;text-align: center;" placeholder="MM" />
+                                            <p:inputMask mask="9999" id="año" required="true" style="width: 150px;text-align: center;" placeholder="AAAA" />   
+                                        </p:panelGrid>
+
+                                        <p:inputMask id="cod_seguridad" mask="999" required="true" style="width: 350px;text-align: center;" 
+                                                     placeholder="Codigo de Seguridad" /> 
+
+                                        <p:commandButton
                                             id="buy-button"
                                             value="Comprar"
                                             process="@parent"
                                             update="@form"
                                             action="#{checkoutFormBean.buyProduct()}">
                                         </p:commandButton>
-                                    
-                                </h:form>
-                            </div>
-                        </center>
-                        <br></br><br></br><br></br><br></br><br></br>
-                    </p:outputPanel>
+
+                                    </h:form>
+                                </div>
+                            </center>
+                            <br></br><br></br><br></br><br></br><br></br>
+                        </p:column>
+                    
                 </p:panelGrid>
             </ui:define>
         </ui:composition>

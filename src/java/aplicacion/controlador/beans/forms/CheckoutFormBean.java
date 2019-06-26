@@ -56,7 +56,7 @@ public class CheckoutFormBean implements Serializable {
         if (user != null) {
             Order order = new Order();
             order.addItem(new OrderItem(getProduct(), getProductQty()));
-            order.setState(OrderStatus.pending);
+            order.setState(OrderStatus.purchased);
             order.setUser(user);
             order.setOrderNumber(orderBean.getLastOrderNumber() + 1);
             order.setCreatedAt(Calendar.getInstance());

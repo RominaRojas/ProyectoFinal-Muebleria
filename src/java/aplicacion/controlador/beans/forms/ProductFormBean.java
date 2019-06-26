@@ -8,7 +8,6 @@ package aplicacion.controlador.beans.forms;
 import aplicacion.controlador.beans.ProductBean;
 import aplicacion.modelo.dominio.product.Product;
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;

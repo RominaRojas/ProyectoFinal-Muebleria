@@ -45,7 +45,7 @@ public class TestCreateOrder {
         Order order = new Order();
         order.addItem(orderItem);
         order.setOrderNumber(10000005);
-        order.setState(OrderStatus.pending);
+        order.setState(OrderStatus.purchased);
         order.setUser(user);
         order.setCreatedAt(Calendar.getInstance());
         

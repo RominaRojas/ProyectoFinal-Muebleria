@@ -85,7 +85,11 @@ public class ProductDAOImp implements Serializable, IProductDAO {
         criteria.add(Restrictions.          
                 sqlRestriction("{alias}.category_id = "+Integer.toString(categoryId))
         );
-        return criteria.list();
+        
+        List<Product> productList = criteria.list();
+        session.close();
+        
+        return productList;
     }
 
     @Override

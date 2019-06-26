@@ -30,10 +30,10 @@
                                             <span class="product-price">
                                                 <h:outputText value="#{productViewFormBean.product.price}">
                                                     <f:convertNumber currencySymbol="$ " 
-                                                             type="currency" 
-                                                             maxIntegerDigits="5" 
-                                                             maxFractionDigits="2"
-                                                             locale="es_AR"/>
+                                                                     type="currency" 
+                                                                     maxIntegerDigits="5" 
+                                                                     maxFractionDigits="2"
+                                                                     locale="es_AR"/>
                                                 </h:outputText>
                                             </span>
                                         </div>
@@ -41,19 +41,38 @@
                                         <p:inputNumber
                                             id="product-id-tmp"
                                             decimalPlaces="0" 
-                                            value="#{productViewFormBean.productId}" 
+                                            value="#{productViewFormBean.productId}"
                                             style="display:none"/>
 
-                                        <p:spinner size="3" min="1" required="true" id="product-qty" value="#{productViewFormBean.productQty}"/> 
+                                        <p:spinner 
+                                            size="3" min="1" 
+                                            id="product-qty" 
+                                            max="#{productViewFormBean.product.stock}" 
+                                            required="true" 
+                                            value="#{productViewFormBean.productQty}"/> 
 
                                         <p:commandButton
                                             id="product-buy"
                                             value="Comprar"
-                                            class="product-button"
+                                            action="#{productViewFormBean.buyProduct()}"
                                             process="@parent"
                                             update="@form"
-                                            action="#{productViewFormBean.buyProduct()}">
+                                            class="product-button">
+                                            <p:confirm header="Confirmacion de compra" 
+                                                       message="¿Esta seguro que desea comprar?" 
+                                                       icon="ui-icon-alert"/>
                                         </p:commandButton>
+
+                                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                            <p:commandButton value="Comprar" 
+
+                                                             styleClass="ui-confirmdialog-yes"/>
+
+                                            <p:commandButton value="Seguir viendo" 
+                                                             type="button" 
+                                                             styleClass="ui-confirmdialog-no" />
+                                        </p:confirmDialog>  
+
                                         <br/><br/><br/>
                                         <span class="margin-top-20">
                                             #{productViewFormBean.product.stock} articulos disponibles
@@ -64,7 +83,7 @@
                             </div>
                             <br/><br/><br/>
                             <p:separator/>
-                            
+
                             <div class="ui-grid-row margin-top-20">                    
                                 <div class="ui-g-12 " > 
                                     <h1> Descripción </h1>

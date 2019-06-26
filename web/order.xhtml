@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
 
     </h:head>
@@ -28,11 +29,19 @@
                         </p:column>
 
                         <p:column headerText="Total del Pedido">
-                            $ <h:outputText value="#{order.totalPrice}"/>
+                            <h:outputText value="#{order.totalPrice}">
+                                <f:convertNumber currencySymbol="$ " 
+                                                 type="currency" 
+                                                 maxIntegerDigits="5" 
+                                                 maxFractionDigits="2"
+                                                 locale="es_AR"/>
+                            </h:outputText>
                         </p:column>
 
                         <p:column headerText="Fecha">
-                            <h:outputText value="#{order.getCreatedAtFormated()}"/>
+                            <h:outputText value="#{order.getCreatedAtDate()}">
+                                <f:convertDateTime dateStyle="long" />
+                            </h:outputText>
                         </p:column>
 
                         <p:column headerText="">
@@ -45,7 +54,7 @@
                         <br></br>
                         <p:commandButton ajax="false" action="#{orderFormBean.downloadOrderList()}" id="imprimir" value="IMPRIMIR"/>
                     </center>
-                    
+
                     <br></br><br></br><br></br>
                 </h:form>
             </ui:define>

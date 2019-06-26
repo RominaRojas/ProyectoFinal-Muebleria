@@ -9,6 +9,7 @@ import aplicacion.modelo.dominio.user.User;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -56,8 +57,8 @@ public class Order implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-
-    public int getOrderNumber() {
+    
+    public Integer getOrderNumber() {
         return orderNumber;
     }
 
@@ -73,6 +74,10 @@ public class Order implements Serializable {
         this.user = user;
     }
 
+    public Date getCreatedAtDate() {
+        return createdAt.getTime();
+    }
+    
     public Calendar getCreatedAt() {
         return createdAt;
     }

@@ -63,7 +63,9 @@
                             </p:column>
 
                             <p:column headerText="Fecha">
-                                <h:outputText value="#{order.getCreatedAtFormated()}"/>
+                                <h:outputText value="#{order.getCreatedAtDate()}">
+                                    <f:convertDateTime dateStyle="long" />
+                                </h:outputText>
                             </p:column>
 
                             <p:column headerText="">
